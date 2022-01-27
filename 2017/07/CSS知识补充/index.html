@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>CSS知识补充</title>
+  <meta name="description" content="2018/7">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CSS知识补充">
+  <meta name="twitter:description" content="2018/7">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CSS知识补充">
+  <meta property="og:description" content="2018/7">
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="canonical" href="http://C0ldstudy.github.io/2017/07/CSS%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/">
+  <link rel="alternate" type="application/rss+xml" title="Jason Xu" href="http://C0ldstudy.github.io/feed.xml">
+
+  <!-- kramdown-math-katex latex sytax for markdown -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- google 统计 -->
+   
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-118980599-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">
+                Homepage
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/timeline" title="timeline" class="btn-mobile-menu__icon">
+                      Timeline
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      Tag
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/photography" title="photography" class="btn-mobile-menu__icon">
+                      Photography
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      About me
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 Jason Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2>
+                            
+                                C0ldstudy
+                            
+                        </h2>
+                        <p>
+                           
+                                Machine Learning / Security
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jason Xu" class="blog-button">Jason Xu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Personal Station</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">In the end, we only regret the chances we didn't take.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        <p class="panel-cover__description">🇨🇳Shanghai -> 🇭🇰Hong Kong -> 🇺🇸Irvine</p>
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Homepage</a></li>
+                
+                  <li class="navigation__item"><a href="/timeline" title="timeline">Timeline</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">Tag</a></li>
+                
+                  <li class="navigation__item"><a href="/photography" title="photography">Photography</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">About me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">CSS知识补充</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2017-07-12 00:00:00 -0700" itemprop="datePublished" class="post-meta__date date">2017-07-12 | </time>
+      <span id="busuanzi_container_page_pv" style='display:none'> Read: <span id="busuanzi_value_page_pv"></span> Times</span>
+
+    </div>
+  </header>
+
+  <section class="post">
+
+    <h3 id="20187">2018/7</h3>
+
+<p>1.语法：</p>
+
+<p><code class="language-plaintext highlighter-rouge">选择题：{属性：值}</code></p>
+
+<ul>
+  <li>值为若干单词则加上双引号</li>
+  <li>多个申明分号分割</li>
+</ul>
+
+<p>2.属性：</p>
+
+<ul>
+  <li>font-family		字体</li>
+  <li>font-style</li>
+</ul>
+
+<p>3.派生选择器</p>
+
+<p>将某元素属性单独设置即可</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>li strong {
+	font-style: italic;
+	font-weight: normal;
+}
+</code></pre></div></div>
+
+<p>4.id选择器</p>
+
+<p><code class="language-plaintext highlighter-rouge">#red {color:red;}</code></p>
+
+<p>用于建立派生选择器：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#sidebar p {
+	font-style: italic;
+	text-align: right;
+	margin-top: 0.5em;
+}
+</code></pre></div></div>
+
+<p>5.类Class选择器</p>
+
+<p><code class="language-plaintext highlighter-rouge">.center {text-align: center}</code></p>
+
+<p>6.属性选择器</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[title]
+{
+color:red;
+}
+</code></pre></div></div>
+
+<p>7.样式表</p>
+
+<ul>
+  <li>
+    <p>外部样式表</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="mystyle.css" /&gt;
+  &lt;/head&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>内部样式表</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;head&gt;
+  &lt;style type="text/css"&gt;
+    hr {color: sienna;}
+    p {margin-left: 20px;}
+    body {background-image: url("images/back40.gif");}
+  &lt;/style&gt;
+  &lt;/head&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>内联样式</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;p style="color: sienna; margin-left: 20px"&gt;
+  This is a paragraph
+  &lt;/p&gt;
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>8.背景</p>
+
+<ul>
+  <li>background-color: gray;		背景颜色</li>
+  <li>background-image: url(/i/xx.gif);	背景图片</li>
+  <li>background-repeat: repeat-x/y; 		横向/纵向平铺</li>
+  <li>background-position: top/bottom/left/right/center/50% 50%/50px 50px;			背景位置</li>
+  <li>background-attachment:fixed			背景在可视区固定</li>
+</ul>
+
+<p>9.文本</p>
+
+<ul>
+  <li>缩进文本(首行缩进)：	<code class="language-plaintext highlighter-rouge">p {text-indent: 5em/20%;} 百分比是相对于父元素的宽度而言</code></li>
+  <li>水平对齐：		<code class="language-plaintext highlighter-rouge">text-align: left/right/center(只影响文本)/&lt;CENTER&gt;(还影响元素居中)/justify</code></li>
+  <li>
+    <p>字间隔/字母间隔：		word-spacing/letter-spacing</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  p.tight {word-spacing: -0.5em;}
+  h1 {letter-spacing: -0.5em}
+  em:是网页浏览器的基础文本尺寸的高度
+</code></pre></div>    </div>
+  </li>
+  <li>字符转换：<code class="language-plaintext highlighter-rouge">text-transform:none/uppercase/lowercase/capitalize</code></li>
+  <li>文本装饰：text-decoration:none\underline\overline\line-through\blink</li>
+  <li>空白符： <code class="language-plaintext highlighter-rouge">p {white-space: normal;}</code></li>
+</ul>
+
+<p>10.字体</p>
+
+<p><code class="language-plaintext highlighter-rouge">font-family:</code></p>
+
+<ul>
+  <li>五种通用字体：</li>
+</ul>
+
+<blockquote>
+  <p>Serif 字体</p>
+
+  <p>Sans-serif 字体</p>
+
+  <p>Monospace 字体</p>
+
+  <p>Cursive 字体</p>
+
+  <p>Fantasy 字体</p>
+
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">font-style:</code></p>
+
+<ul>
+  <li>三个值：</li>
+</ul>
+
+<blockquote>
+  <p>normal - 文本正常显示</p>
+
+  <p>italic - 文本斜体显示</p>
+
+  <p>oblique - 文本倾斜显示</p>
+
+</blockquote>
+
+<ul>
+  <li>字体变形：<code class="language-plaintext highlighter-rouge">font-variant:</code></li>
+  <li>字体加粗：<code class="language-plaintext highlighter-rouge">font-weight:normal(400)/bold/900(100~900)</code></li>
+  <li>字体大小：<code class="language-plaintext highlighter-rouge">font-size:px/em/%</code></li>
+</ul>
+
+<p>11.链接</p>
+
+<ul>
+  <li>4种状态</li>
+</ul>
+
+<blockquote>
+  <p>a:link - 普通的、未被访问的链接</p>
+</blockquote>
+
+<blockquote>
+  <p>a:visited - 用户已访问的链接</p>
+</blockquote>
+
+<blockquote>
+  <p>a:hover - 鼠标指针位于链接的上方</p>
+</blockquote>
+
+<blockquote>
+  <p>a:active - 链接被点击的时刻</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a:link {color:#FF0000;}		/* 未被访问的链接 */
+a:visited {color:#00FF00;}	/* 已被访问的链接 */
+a:hover {color:#FF00FF;}	/* 鼠标指针移动到链接上 */
+a:active {color:#0000FF;}	/* 正在被点击的链接 */
+</code></pre></div></div>
+
+<p>12.列表</p>
+
+<ul>
+  <li>列表类型 <code class="language-plaintext highlighter-rouge">ul {list-style-type: square}</code></li>
+  <li>列表项图像 <code class="language-plaintext highlighter-rouge">ul li {list-style-image: url(xxx.gif)}</code></li>
+  <li>列表标志位置 <code class="language-plaintext highlighter-rouge">list-style-position:</code></li>
+  <li>简写列表样式 <code class="language-plaintext highlighter-rouge">li {list-style : url(example.gif) square inside}</code></li>
+</ul>
+
+<p>13.表格</p>
+
+<p><strong><em>html补充：tr一行、td一项</em></strong></p>
+
+<ul>
+  <li>
+    <p>表格边框</p>
+
+    <p>table, th, td
+    {
+    border: 1px solid blue;
+    }</p>
+  </li>
+  <li>
+    <p>折叠边框：多边框或单边框</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  table
+    {
+    border-collapse:collapse;
+    }
+	
+  table,th, td
+    {
+    border: 1px solid black;
+    }
+</code></pre></div>    </div>
+  </li>
+  <li>表格文本对齐 <code class="language-plaintext highlighter-rouge">text-align/vertical-align:水平/垂直对齐</code></li>
+  <li>表格内边距 <code class="language-plaintext highlighter-rouge">padding:15px;</code></li>
+</ul>
+
+<p>14.轮廓</p>
+
+<p><code class="language-plaintext highlighter-rouge">outline-color/style/width</code></p>
+
+<p>15.调试</p>
+
+<p>通过Chrome的控制台设置CSS进行调试方便查看CSS变化。</p>
+
+<h3 id="20191">2019/1</h3>
+
+<h4 id="css-position-staticabsoluterelativefixedsticky">CSS Position: static/absolute/relative/fixed/sticky</h4>
+
+<ol>
+  <li>static(default): The static postioned element will not be affected by the top, bottom, left, right properties.</li>
+  <li>relative: base on the normal position.</li>
+  <li>fixed: It is positioned relative to the viewport. It will stay in the same place while the page is scrolled.</li>
+  <li>absolute: It is positioned relative to the nearest ancestor. If it has no ancestor, it will take document body as an ancesotr.</li>
+  <li>sticky: It combines the relative and fixed.</li>
+</ol>
+
+  </section>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/06/pwn%E8%87%AA%E5%AD%A6/" data-toggle="tooltip" data-placement="top" title="pwn自学">Last Blog：  <span>pwn自学</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/07/laravel%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" data-toggle="tooltip" data-placement="top" title="laravel自学">Next Blog：  <span>laravel自学</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      // Here is an example,
+      this.page.url = "https://c0ldstudy.github.io/2017/07/CSS%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/";
+      this.page.identifier = "/2017/07/CSS%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/";
+    };
+
+    // You should be able to get the following lines of code from your Disqus admin.
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//c0ldstudy-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">
+          <div clas="recordings" style="display:flex;justify-content:space-around;">
+          <div class="twitter_display">
+            <div class='jekyll-twitter-plugin'><a class="twitter-timeline" data-width="300" data-tweet-limit="1" href="https://twitter.com/JiacenXu?ref_src=twsrc%5Etfw">Tweets by JiacenXu</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+          </div>
+          <div class="github_chart">
+            <img src="http://ghchart.rshah.org/409ba5/C0ldstudy" alt="C0ldstudy's Blue Github chart"/>
+            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=PWaejm3rz2TG6HOtwcekX2kM9kPWz2aP6GYhuOVoNpA&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+          </div>
+        </div>
+            <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/c0ldstudy" title="@c0ldstudy 的 Github" target="_blank">
+              <i class='fab fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          <!-- Twitter -->
+          <li class="navigation__item_social">
+            <a href="https://twitter.com/JiacenXu" title="@JiacenXu" target="_blank">
+              <i class='fab fa-twitter fa-2x'></i>
+              <span class="label">Twitter</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- LinkedIn -->
+          <li class="navigation__item_social">
+            <a href="https://www.linkedin.com/in/jiacen-xu-021536105/" title="@jiacen-xu-021536105" target="_blank">
+              <i class='fab fa-linkedin fa-2x'></i>
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:coldstudyxu@gmail.com" title="Contact me">
+              <i class='fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+          </ul>
+        </nav>
+        </div>
+
+        <div class = "footer_div_counter">
+           <p class="copyright text-muted">
+            Copyright &copy; Jason Xu 2022 Theme by <a href="http://c0ldstudy.github.io/">C0ldstudy</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=c0ldstudy&repo=c0ldstudy.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_uv" style='display:none'>
+          <span id="busuanzi_value_site_uv"></span> People Visited!
+          </span>
+        </div>
+        </div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>

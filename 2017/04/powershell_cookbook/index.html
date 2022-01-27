@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>powershell cookbook</title>
+  <meta name="description" content="1.使用指南">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="powershell cookbook">
+  <meta name="twitter:description" content="1.使用指南">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="powershell cookbook">
+  <meta property="og:description" content="1.使用指南">
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="canonical" href="http://C0ldstudy.github.io/2017/04/powershell_cookbook/">
+  <link rel="alternate" type="application/rss+xml" title="Jason Xu" href="http://C0ldstudy.github.io/feed.xml">
+
+  <!-- kramdown-math-katex latex sytax for markdown -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- google 统计 -->
+   
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-118980599-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">
+                Homepage
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/timeline" title="timeline" class="btn-mobile-menu__icon">
+                      Timeline
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      Tag
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/photography" title="photography" class="btn-mobile-menu__icon">
+                      Photography
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      About me
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 Jason Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2>
+                            
+                                C0ldstudy
+                            
+                        </h2>
+                        <p>
+                           
+                                Machine Learning / Security
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jason Xu" class="blog-button">Jason Xu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Personal Station</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">In the end, we only regret the chances we didn't take.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        <p class="panel-cover__description">🇨🇳Shanghai -> 🇭🇰Hong Kong -> 🇺🇸Irvine</p>
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Homepage</a></li>
+                
+                  <li class="navigation__item"><a href="/timeline" title="timeline">Timeline</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">Tag</a></li>
+                
+                  <li class="navigation__item"><a href="/photography" title="photography">Photography</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">About me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">powershell cookbook</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2017-04-17 00:00:00 -0700" itemprop="datePublished" class="post-meta__date date">2017-04-17 | </time>
+      <span id="busuanzi_container_page_pv" style='display:none'> Read: <span id="busuanzi_value_page_pv"></span> Times</span>
+
+    </div>
+  </header>
+
+  <section class="post">
+
+    <h4 id="1使用指南">1.使用指南</h4>
+
+<p>1.1运行脚本（调用操作：命令名中包含空格）</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp; 'C:\Program Files\Program.exe' arguments
+当前目录下：.\Program.exe arguments
+</code></pre></div></div>
+
+<p>1.3配置文件</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Prompt()函数
+</code></pre></div></div>
+
+<p>1.4帮助</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-Command/Get-Help
+</code></pre></div></div>
+
+<p>1.7命令转化为Base64编码</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$commands = '1..10' | % { "Powershell Rocks" }'
+$bytes = [System.Text.Encoding]::Unicode.GetByte($commands)
+$encodedString = [Convert]::ToBase64String($bytes)
+</code></pre></div></div>
+
+<h4 id="2管道">2.管道</h4>
+
+<p>2.2过滤列表项或命令输出项</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//列出所有正在运行的进程名称包含“Search”的进程
+Get-Process | Where-Object { $_.Name -like "*Search*" }
+</code></pre></div></div>
+
+<p>2.4处理列表或命令输出的每一项</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//输出1～10*2，$_是输入的参数
+1..10 | Foreach-Object { $_ * 2 }
+//获得文件内容(txt,csv)
+Get-Content
+</code></pre></div></div>
+
+<h4 id="3变量和对象">3.变量和对象</h4>
+
+<p>3.2访问环境变量</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//列出env驱动器的所有子节点
+Get-ChildItem env:
+</code></pre></div></div>
+
+<p>3.4使用.NET对象</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//静态方法
+[ClassName]::MethodName(parameter list)	
+[System.Diagnostics.Process]::GetProcessById(0)
+//
+(New-Object Net.WebClient).DownloadString("http://live.com")	
+</code></pre></div></div>
+
+<p>3.8使用COM对象</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$object = New_Object -ComObject ProgId
+//了解对象的方法和属性
+$object | Get-Member (-Static)
+Get-Member -InputObject $object
+//MSDN获得详细文档
+</code></pre></div></div>
+
+<p>3.12向类添加自定义的方法和属性</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>使用XML
+</code></pre></div></div>
+
+<h4 id="4循环与流程控制">4.循环与流程控制</h4>
+
+<p>4.2比较和逻辑运算符、条件语句</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>运算符：-eq,-ne,-ge,-gt,-like,-notlike,-is,-isnot
+逻辑符：-and,-or,-xor,-not
+条件语句：if,elseif,else,switch
+循环语句：for,foreach,while,do...while
+</code></pre></div></div>
+
+<p>4.5添加暂停或延迟</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>暂停直到enter：Read-Host
+暂停直到按下某一键：$host.UI.RawUI.ReadKey()
+</code></pre></div></div>
+
+<h4 id="5字符串与非结构化文本">5.字符串与非结构化文本</h4>
+<p>5.1 创建字符串</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>原生字符串使用单引号
+支持变量扩展和转移字符的使用双引号
+PS &gt;"{0} divided by {1} is {2}" -f $number2, $number1, ($number2 / $number1)
+</code></pre></div></div>
+
+<p>5.7根据文本或模式在字符串中查找</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>字符串与通配符匹配：-like
+字符串与正则表达式匹配：-match
+字符串是否包含特定字符串：.Contains("")    
+字符串在另一个字符串的位置：IndexOf()
+替换文本：.Replace("World","Powershell")
+字符串大小写转换："".ToUpper(),"".ToLower()
+去掉字符串的空格：Trim()
+</code></pre></div></div>
+
+<p>5.12转换文本流为对象</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>替换文本：Sed
+搜索文本：Grep
+</code></pre></div></div>
+
+<h4 id="6计算与数学计算">6.计算与数学计算</h4>
+<p>6.3度量一个列表的统计属性</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Measure-Object -Average -Sum -Property Length
+</code></pre></div></div>
+
+<h4 id="7简单文件">7.简单文件</h4>
+<p>7.1获取文件内容</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-Content C:\file.txt
+${ C:\file.txt }
+//-Delimiter 修改换行标识
+//ReadCount设置读取的行数
+
+//一次读取所有文件，处理大文件时需要格外小心
+[File]::ReadAllText()
+</code></pre></div></div>
+
+<p>7.2搜索文件的文本</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select-String
+-Simple 不区分大小写
+
+//使用正则表达式递归搜索所有文件名为.txt的文件，将Get-Childitem的结果通过管道输出给Select-String
+Get-ChildItem -Filter *.txt -Recurse | Select-String pattern
+
+//当前目录下搜索扩展名为DLL的文件是否包含“Debug”
+Get-ChildItem | Where { $_ | Select-String "Debug" -Quiet }
+</code></pre></div></div>
+
+<p>7.5创建临时文件</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$filename = [System.IO.Path]::GetTempFileName()
+Remove-Item -Force $filename
+</code></pre></div></div>
+
+<h4 id="8结构化文件">8.结构化文件</h4>
+<p>8.1访问XML文件中的信息</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$xml = [xml] (Get-Content $filename)
+</code></pre></div></div>
+
+<p>8.4导入导出结构化数据</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Export-CliXml
+Import-CliXml
+</code></pre></div></div>
+
+<h4 id="9支持internet的脚本">9.支持Internet的脚本</h4>
+<p>9.1从Internet下载一个文件</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$wc = New-Object System.Net.WebClient
+$wc.DownloadFile($source, $destination)
+//下载Web页面
+$content = $wc.DownloadString($source)
+</code></pre></div></div>
+
+<p>9.5将命令的输出生成一个Web页面</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ConvertTo-Html
+</code></pre></div></div>
+
+<p>9.7与Internet协议交互</p>
+
+<h4 id="10代码复用">10.代码复用</h4>
+<p>10.2编写一个函数</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>param([double] $fahrenheit)	//脚本的形参
+$celsius = $fahrenheit -32	//操作
+$celsius = $celsius / 1.8
+"$fahrenheit degrees Fahrenheit is $celsius degrees Celsius." //输出
+</code></pre></div></div>
+
+<p>10.3脚本</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//脚本块 Map-Object
+//使用库脚本
+$scriptDirectory = Split-Path $myInvocation.MyCommand.Path.(Join-Path $scriptDirectory LibraryTemperature.ps1)
+//访问管道数据    $input
+</code></pre></div></div>
+
+<p>10.8用命令关键字(Cmdlet Keywords)编写面向管道的脚本</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//把脚本分为初始化、处理和清除
+function{
+begin{}
+process{}
+end{}
+}
+//使用fearch($element in $input)访问输入管道的元素
+//面向管道的函数		filter代替function
+</code></pre></div></div>
+
+<h4 id="11列表数组和hash表">11.列表、数组和hash表</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//赋值列表用逗号分隔
+$Array = 1,2,"Hello World"
+
+//新建数组
+$myArray = New-Object string [] 10
+
+//创建多维数组
+$jagged = @(
+    (1,2,3,4)
+    (5,6,7,8)
+)
+
+//访问数组每个元素Foreach_Object，foreach，for
+Foreach_Object { $sum += $_ }
+foreach($element in $myArray){$sum += $element }
+
+//数组排序
+Get-ChildItem | Sort-Object -Descending Length | Slelect Name,Length
+
+//数组包含某项，匹配：-eq,-like,-match
+"Hello","World" - contains "Hello"
+
+//合并数组
+$result = $firstArray + $secondArray
+
+//从数组中移出元素:-ne,-notlike,-notmatch
+$array = $array -ne "Item1"
+
+//使用ArrayList类完成高级的数组任务
+$myArray = New-Object System.Collections.ArrayList
+[void] $myArray.Add("Hello")
+[void] $myArray.AddRange(("World","how ara you"))
+$myArray.RemoveAt(1)
+
+//创建hash表
+$myHashtable @{}
+$myHashtable = @{Key1 = "Value1";"Key 2" = 1,2,3}
+$myHashtable["New Item"] = 5
+
+//获取hash表中各个元素
+GetEnumerator()
+</code></pre></div></div>
+
+<h4 id="12用户交互">12.用户交互</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//使用Read-Host
+$directory = Read-Host "Enter a directory name"
+
+//读取用户输入的按键
+[Console]::ReadKey()
+
+//给用户显示输出和消息
+Write-Host, Out-Host
+
+//为长时间运行的任务提供进度更新
+Write-Progress
+
+//主机的用户界面访问功能
+ $host.UI.RawUI.WindowTitle = (Get-Location)
+</code></pre></div></div>
+
+<h4 id="13跟踪和错误管理">13.跟踪和错误管理</h4>
+<p>13.1查看由某一命令生成的错误</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$error, $eooroView
+//清除错误
+$error.Clear()
+$error.Count()
+</code></pre></div></div>
+
+<p>13.2处理警告、错误和终止错误</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//忽略响应警告信息
+$warningPreference = "SilentlyContinue"
+//忽略非终止信息
+$errorActionPreference = "SilentlyContinue"
+</code></pre></div></div>
+
+<p>13.4调试脚本</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write-Debug, 
+//逐步、跟踪、环境检查
+Set-PsDebug -Step
+Set-PsDebug -Trace
+$host.EnterNestedPrompt
+</code></pre></div></div>
+
+<h4 id="14掌握环境">14.掌握环境</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$myInvocation提供当前脚本、函数或脚本块的大量信息:
+MyCommand:命令本身的信息
+ScriptLineNumber:命令行号
+ScriptName:调用改命令的脚本名称
+Line:在脚本行中调用该命令的文本
+InvocationName:调用该命令的名称
+PipelineLength:命令管道中的命令数
+PipelinePostion:管道中的命令位置
+Definition/Path:脚本运行完整路径
+
+//确定系统路径和特殊文件夹位置
+[Environment]::GetFolderPath("System")
+</code></pre></div></div>
+
+<h4 id="15windows-powershell的拓展">15.Windows PowerShell的拓展</h4>
+<p>15.1访问WMI数据</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//检索WMI类的所有实例
+Get-WmiObject -ComputerName Computer -Class Win32_Bios 
+
+//检索WMI特定实例
+Get-WmiObject Win32_Service -Filter "StartMode = 'Auto'"
+
+//使用WMI的WQL语言检索
+$query = [WmiSearcher] "SELECT * FROM Win32_Service WHERE StartMode = 'Auto'"
+</code></pre></div></div>
+
+<p>15.4使用.NET来执行高级的WMI任务</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//使用所生成的对象PsBase属性
+//获取与给定的实例相关的WMI实例，调用GetRelated()
+$instance = [Wmi] 'Win32_service.Name="winmgmt"'
+$instance.PsBase.GetRelated()
+</code></pre></div></div>
+
+<p>15.6使用COM脚本接口自动化程序</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$shell = New-Object -ComObject "Shell.Application"
+$shell.Windows() | Format-Table LocationName,LocationUrl
+</code></pre></div></div>
+
+<h4 id="16安全和脚本签名">16.安全和脚本签名</h4>
+<p>16.1通过执行策略启动脚本</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Set-ExecutionPolicy RemoteSigned
+ Restricted     受限
+ Allsigned      签名
+ Remote Signed  远程签名
+ Unrestricted   不受限制
+</code></pre></div></div>
+
+<p>16.2脚本或格式文件签名</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$cert = @(Get-ChildItem cert:\CurrentUser\My -CodeSigning)[0]
+Set-AuthenticodeSignature file.ps1 $cert
+</code></pre></div></div>
+
+<p>16.4管理企业中的安全性</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>组策略模版
+部署证书服务来为域账户自动生成证书
+应用软件限制策略
+</code></pre></div></div>
+
+<p>16.5验证脚本的数字签名</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-AuthenticodeSignature
+</code></pre></div></div>
+
+<p>16.6安全地处理敏感信息</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$secureInput = Read-Host -AsSecureString "Enter your Private key"
+</code></pre></div></div>
+
+
+  </section>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/03/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" data-toggle="tooltip" data-placement="top" title="OllyDbg基础">Last Blog：  <span>OllyDbg基础</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/04/JavaScript_Learning/" data-toggle="tooltip" data-placement="top" title="JavaScript Learning">Next Blog：  <span>JavaScript Learning</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      // Here is an example,
+      this.page.url = "https://c0ldstudy.github.io/2017/04/powershell_cookbook/";
+      this.page.identifier = "/2017/04/powershell_cookbook/";
+    };
+
+    // You should be able to get the following lines of code from your Disqus admin.
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//c0ldstudy-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">
+          <div clas="recordings" style="display:flex;justify-content:space-around;">
+          <div class="twitter_display">
+            <div class='jekyll-twitter-plugin'><a class="twitter-timeline" data-width="300" data-tweet-limit="1" href="https://twitter.com/JiacenXu?ref_src=twsrc%5Etfw">Tweets by JiacenXu</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+          </div>
+          <div class="github_chart">
+            <img src="http://ghchart.rshah.org/409ba5/C0ldstudy" alt="C0ldstudy's Blue Github chart"/>
+            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=PWaejm3rz2TG6HOtwcekX2kM9kPWz2aP6GYhuOVoNpA&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+          </div>
+        </div>
+            <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/c0ldstudy" title="@c0ldstudy 的 Github" target="_blank">
+              <i class='fab fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          <!-- Twitter -->
+          <li class="navigation__item_social">
+            <a href="https://twitter.com/JiacenXu" title="@JiacenXu" target="_blank">
+              <i class='fab fa-twitter fa-2x'></i>
+              <span class="label">Twitter</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- LinkedIn -->
+          <li class="navigation__item_social">
+            <a href="https://www.linkedin.com/in/jiacen-xu-021536105/" title="@jiacen-xu-021536105" target="_blank">
+              <i class='fab fa-linkedin fa-2x'></i>
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:coldstudyxu@gmail.com" title="Contact me">
+              <i class='fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+          </ul>
+        </nav>
+        </div>
+
+        <div class = "footer_div_counter">
+           <p class="copyright text-muted">
+            Copyright &copy; Jason Xu 2022 Theme by <a href="http://c0ldstudy.github.io/">C0ldstudy</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=c0ldstudy&repo=c0ldstudy.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_uv" style='display:none'>
+          <span id="busuanzi_value_site_uv"></span> People Visited!
+          </span>
+        </div>
+        </div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>CTF MISC Summary</title>
+  <meta name="description" content="MISC is the abbreviation of miscellaneou. It includes packets analysis, picture invisible and many other parts. This blog will summarize these concepts and p...">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CTF MISC Summary">
+  <meta name="twitter:description" content="MISC is the abbreviation of miscellaneou. It includes packets analysis, picture invisible and many other parts. This blog will summarize these concepts and p...">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CTF MISC Summary">
+  <meta property="og:description" content="MISC is the abbreviation of miscellaneou. It includes packets analysis, picture invisible and many other parts. This blog will summarize these concepts and p...">
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="canonical" href="http://C0ldstudy.github.io/2018/05/CTF_MISC/">
+  <link rel="alternate" type="application/rss+xml" title="Jason Xu" href="http://C0ldstudy.github.io/feed.xml">
+
+  <!-- kramdown-math-katex latex sytax for markdown -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- google 统计 -->
+   
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-118980599-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">
+                Homepage
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/timeline" title="timeline" class="btn-mobile-menu__icon">
+                      Timeline
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      Tag
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/photography" title="photography" class="btn-mobile-menu__icon">
+                      Photography
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      About me
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 Jason Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2>
+                            
+                                C0ldstudy
+                            
+                        </h2>
+                        <p>
+                           
+                                Machine Learning / Security
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jason Xu" class="blog-button">Jason Xu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Personal Station</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">In the end, we only regret the chances we didn't take.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        <p class="panel-cover__description">🇨🇳Shanghai -> 🇭🇰Hong Kong -> 🇺🇸Irvine</p>
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Homepage</a></li>
+                
+                  <li class="navigation__item"><a href="/timeline" title="timeline">Timeline</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">Tag</a></li>
+                
+                  <li class="navigation__item"><a href="/photography" title="photography">Photography</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">About me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">CTF MISC Summary</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2018-05-01 00:00:00 -0700" itemprop="datePublished" class="post-meta__date date">2018-05-01 | </time>
+      <span id="busuanzi_container_page_pv" style='display:none'> Read: <span id="busuanzi_value_page_pv"></span> Times</span>
+
+    </div>
+  </header>
+
+  <section class="post">
+
+    <p>MISC is the abbreviation of miscellaneou. It includes packets analysis, picture invisible and many other parts. This blog will summarize these concepts and problems to make it easier to remember the whole stuff.</p>
+
+<p>First, I want to summarize the magic word of the pictures and executes which are useful in a lot of problems in CTF contest.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>file type</th>
+      <th>start of image</th>
+      <th>end of image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JPEG</td>
+      <td>ff d8</td>
+      <td>ff d9</td>
+    </tr>
+    <tr>
+      <td>JFIF</td>
+      <td>ff e0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Exif</td>
+      <td>ff e1</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can use some commands to figure out the files’ real type and content:</p>
+
+<ul>
+  <li>file xxx.png</li>
+  <li>strings xxx.png</li>
+</ul>
+
+<hr />
+<h2 id="finished-wireshark数据包分析实战pracitical-packet-analysis">[Finished] Wireshark数据包分析实战：Pracitical Packet Analysis</h2>
+<p><strong>[America] Chris Sanders</strong></p>
+
+<h3 id="1-数据包分析基础">1. 数据包分析基础</h3>
+<p>1.1 数据包嗅探器工作原理：将嗅探器设置在指定的位置，收集往来的数据包，转换成可读形式，识别分析和验证协议。</p>
+
+<p>1.2 OSI七层模型：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>层次</th>
+      <th>协议</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>应用层</td>
+      <td>HTTP, SMTP, FTP, Telnet</td>
+    </tr>
+    <tr>
+      <td>表示层</td>
+      <td>ASCII, MPEG, JPEG, MIDI</td>
+    </tr>
+    <tr>
+      <td>会话层</td>
+      <td>NetBIOS, SAP, SDP, NWLink</td>
+    </tr>
+    <tr>
+      <td>传输层</td>
+      <td>TCP, UDP, SPX</td>
+    </tr>
+    <tr>
+      <td>网络层</td>
+      <td>IP, IPX</td>
+    </tr>
+    <tr>
+      <td>数据链路层</td>
+      <td>Ethernet, Token Ring, FDDI, AppleTalk</td>
+    </tr>
+    <tr>
+      <td>物理层</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>1.3 数据封装</p>
+
+<p>不同层次在数据包头部增加或去除数据块，实现封装：以太网+IP+TCP+HTTP。</p>
+
+<p>1.4 网络硬件</p>
+
+<ul>
+  <li>集线器：半双工模式（不能同一时间接收和发送数据），会将从一个端口收到的数据包向其他每一个端口传输，高负载时效率低下。</li>
+  <li>交换机：向指定端口传输数据包，工作在数据链路层。</li>
+  <li>路由器：工作在网络层，用IP地址标识网络设备。</li>
+</ul>
+
+<p>1.5 在交换式网络中进行嗅探</p>
+
+<ul>
+  <li>端口镜像：获取目标设备传输与接收的网络流量。要求：交换机提供这个功能；监听端口的流量不能小于被监听端口的流量。</li>
+  <li>集线器输出：通过在被监听设备上使用集线器实现监听。</li>
+  <li>网络分流器：在某段网线上增加网络分流器实现监听流经网线的数据。</li>
+  <li>ARP欺骗：在局域网中发送包含虚假MAC地址的ARP消息，以劫持其他计算机流量的过程。推荐工具：<a href="http://www.oxid.it"><code class="language-plaintext highlighter-rouge">Cabin&amp;Abel</code></a></li>
+</ul>
+
+<h3 id="2-wireshark">2. Wireshark</h3>
+<p>Wireshark是目前最好用的嗅探工具之一，其主窗口分为三个部分：Packet List, Packet Details and Packet Bytes.</p>
+
+<p>2.1 数据包操作</p>
+
+<ul>
+  <li>查找数据包：<code class="language-plaintext highlighter-rouge">ctrl+F</code>，匹配下一个：<code class="language-plaintext highlighter-rouge">ctrl+N</code>，匹配上一个：<code class="language-plaintext highlighter-rouge">ctrl+B</code>；</li>
+  <li>标记数据包：<code class="language-plaintext highlighter-rouge">ctrl+M</code>，切换下一个：<code class="language-plaintext highlighter-rouge">shift+ctrl+N</code>，切换上一个：<code class="language-plaintext highlighter-rouge">shift+ctrl+B</code>；</li>
+  <li>设置数据包相对时间：<code class="language-plaintext highlighter-rouge">Edit-&gt;Set Time Reference</code></li>
+</ul>
+
+<p>2.2 过滤器</p>
+
+<p>包括捕获过滤器和显示过滤器。</p>
+
+<ul>
+  <li>捕获过滤器语法，使用Berkeley Packet Filter(BPF)：
+    <ul>
+      <li>与或非：<code class="language-plaintext highlighter-rouge">&amp;&amp;, ||, !</code></li>
+      <li>主机名和地址过滤器：
+        <ul>
+          <li>host + IPv4, IPv6, 主机名；</li>
+          <li>src/dst + host + IPv4；对源地址和目标地址进行过滤</li>
+          <li>ether host + Mac地址；对Mac地址进行过滤</li>
+        </ul>
+      </li>
+      <li>端口和协议过滤器：<code class="language-plaintext highlighter-rouge">(dst) + port + 8080</code>；</li>
+      <li>协议过滤器：icmp, !ip6;</li>
+      <li><strong>协议域过滤器（高级）</strong>：需要对协议有深入理解
+        <ul>
+          <li>icmp[0] == 3；过滤目标不可达（类型3）的ICMP数据包</li>
+          <li>icmp[0:2] == 0x0301；过滤目标不可达、主机不可达（类型3代码1）的ICMP数据包</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>显示数据包：
+    <ul>
+      <li>ip.addr == 192.168.0.1；根据IP地址过滤</li>
+      <li>frame.len&lt;=128；过滤长度小于128字节的数据包</li>
+      <li>逻辑运算符：and, or, xor, not</li>
+    </ul>
+  </li>
+  <li>查看端点：Statistics-&gt;Endpoints</li>
+  <li>查看网络会话：Statistics-&gt;Conversations</li>
+  <li>基于协议分层结构的统计数据：Statistics-&gt;Protocol Hierarchy</li>
+  <li>名字解析：Capture-&gt;Options
+    <ul>
+      <li>Mac地址解析：使用ARP协议将Mac地址转化成IP地址</li>
+      <li>网络名字解析：IP地址转化为域名</li>
+      <li>传输名字解析：将端口号转化为协议名称</li>
+    </ul>
+  </li>
+  <li>更换解析器：遇到错误识别协议的情况下使用</li>
+  <li>跟踪TCP流：选择数据包右键Follow TCP Stream</li>
+  <li>数据包长度总结：Statistics-&gt;Packet Lengths-&gt;Create Stat</li>
+  <li>图形展示：Statistics-&gt;IO Graphs
+    <ul>
+      <li>双向时间表：Statistics-&gt;TCP Stram Graph-&gt;Round Trip Time Graph</li>
+      <li>数据流图：Statistics -&gt; Flow Graph</li>
+    </ul>
+  </li>
+  <li>专家信息：对话、注意、警告、错误</li>
+</ul>
+
+<h3 id="3-通用底层网络协议">3. 通用底层网络协议</h3>
+
+<p>3.1 地址解析协议(ARP)头包含的数据：ARP协议工作在数据链路层和网络层之间，由于其封装成帧的形式，可以看做属于数据链路层。</p>
+
+<ul>
+  <li>硬件类型：数据链路层使用的类型数据，一般是以太网（类型1）</li>
+  <li>协议类型：ARP请求正在使用的高层协议</li>
+  <li>硬件地址长度</li>
+  <li>协议地址长度</li>
+  <li>ARP操作码：1表示请求，2表示响应</li>
+  <li>发送方硬件地址</li>
+  <li>发送方协议地址</li>
+  <li>目标硬件地址</li>
+  <li>目标协议地址</li>
+</ul>
+
+<p>3.2 互联网协议(IP)</p>
+
+<p>以太网在数据链路层能传输的最大数据包大小是1500字节，即最大传输单元Maximum Transmission Unit(MTU)。</p>
+
+<p>存活时间(TTL)代表该数据包在被丢弃之前所能经历的跳数，每经过一个路由器跳数减一。ICMP ping工具以此来检测设备之间的通信情况。</p>
+
+<ul>
+  <li>IPv4头
+    <ul>
+      <li>版本号：IP所使用的版本</li>
+      <li>首部长度：IP头的长度</li>
+      <li>服务类型：优先级标志位和服务类型标志位</li>
+      <li>总长度</li>
+      <li>标识符：用于识别数据包或被分片数据包的次序</li>
+      <li>标记：区分数据包是否是一组分片数据包</li>
+      <li>分片偏移</li>
+      <li>存活时间：剩余经过路由器跳数</li>
+      <li>协议：上层协议数据包类型</li>
+      <li>首部校验和：数据错误检测机制</li>
+      <li>源IP地址</li>
+      <li>目的IP地址</li>
+      <li>选项</li>
+      <li>数据</li>
+    </ul>
+  </li>
+</ul>
+
+<p>3.3 传输控制协议(TCP)</p>
+
+<p>为数据提供可靠的端到端传输，工作在传输层，可以处理数据的顺序和错误恢复。</p>
+
+<ul>
+  <li>TCP头
+    <ul>
+      <li>源端口</li>
+      <li>目的端口</li>
+      <li>序号：表示TCP片段</li>
+      <li>确认号</li>
+      <li>标记号
+        <ul>
+          <li>URG</li>
+          <li>ACK</li>
+          <li>PSH</li>
+          <li>RST：连接被异常终止或拒绝连接请求</li>
+          <li>SYN</li>
+          <li>FIN</li>
+        </ul>
+      </li>
+      <li>窗口大小</li>
+      <li>校验和</li>
+      <li>紧急指针</li>
+      <li>选项</li>
+    </ul>
+  </li>
+  <li>TCP三次握手
+    <ul>
+      <li>A -SYN-&gt; B</li>
+      <li>A &lt;-SYN/ACK- B</li>
+      <li>A -ACK-&gt; B</li>
+    </ul>
+  </li>
+  <li>TCP终止
+    <ul>
+      <li>A -FIN/ACK-&gt; B</li>
+      <li>A &lt;-ACK- B</li>
+      <li>A -FIN/ACK-&gt; B</li>
+      <li>A -ACK-&gt; B</li>
+    </ul>
+  </li>
+  <li>TCP重置: RST, ACK</li>
+</ul>
+
+<p>3.4 用户数据报协议(UDP)</p>
+
+<p>工作在传输层，提供高速传输，称为“无连接协议”。</p>
+
+<ul>
+  <li>UDP头
+    <ul>
+      <li>源端口</li>
+      <li>目标端口</li>
+      <li>数据包长度</li>
+      <li>校验和</li>
+    </ul>
+  </li>
+</ul>
+
+<p>3.5 互联网控制消息协议(ICMP)：负责提供在网络上设备、服务以及路由器的可用性信息。属于网络层协议。</p>
+
+<ul>
+  <li>ICMP头：
+    <ul>
+      <li>类型Type</li>
+      <li>代码Code</li>
+      <li>校验和Checksum</li>
+      <li>可变域Variable</li>
+    </ul>
+  </li>
+</ul>
+
+<p>3.5.1 ping工具用于发送ICMP echo请求数据包</p>
+
+<p>3.5.2 路由跟踪：通过发送TTL不断自增的数据包，实现可以了解ICMP数据包发送的每一跳的节点的信息。Windows下使用<code class="language-plaintext highlighter-rouge">tracert &lt;IP&gt;</code>命令。</p>
+
+<h3 id="4-常见高层网络协议">4. 常见高层网络协议</h3>
+
+<p>4.1 动态主机配置协议(DHCP): 早起使用BOOTP(Bootstrap Protocol)协议，后来被DHCP取代，用户让设备自动获取IP地址。基于UDP协议。</p>
+
+<ul>
+  <li>DHCP头
+    <ul>
+      <li>操作代码Opcode</li>
+      <li>硬件类型Handware Type</li>
+      <li>硬件长度Handware Length</li>
+      <li>跳数Hops</li>
+      <li>事务ID(Transaction ID)</li>
+      <li>消耗时间Seconds Elasped</li>
+      <li>标记Flags</li>
+      <li>客户端IP地址Client IP Address</li>
+      <li>你的IP地址</li>
+      <li>服务器IP地址</li>
+      <li>网关IP地址</li>
+      <li>客户端硬件地址</li>
+      <li>服务器主机名</li>
+      <li>启动文件Boot File</li>
+      <li>选项Options</li>
+    </ul>
+  </li>
+  <li>续租过程
+    <ul>
+      <li>Client -discover-&gt; Server</li>
+      <li>Client &lt;-offer- Server</li>
+      <li>Client -request-&gt; Server</li>
+      <li>Client &lt;-acknowledgement- Server</li>
+    </ul>
+  </li>
+</ul>
+
+<p>4.2 域名系统DNS：将域名解析成IP地址。</p>
+
+<ul>
+  <li>基于UDP协议。</li>
+  <li>如果本地DNS服务器没有指定域名对应的IP地址，则会向外部DNS服务器递归查询。</li>
+  <li>区域传送（冗余备份需要）
+    <ul>
+      <li>完整区域传送（AXFR）</li>
+      <li>增量区域传送（IXFR）</li>
+    </ul>
+  </li>
+</ul>
+
+<p>4.3 超文本传输协议HTTP：万维网传输机制，用于连接Web服务器。常使用80端口。</p>
+
+<h3 id="5-实际案例">5. 实际案例</h3>
+
+<ul>
+  <li>利用wireshark分析门户网站的登录和发布消息的过程。</li>
+  <li>查看DNS流量</li>
+  <li>查看HTTP请求</li>
+</ul>
+
+<p>5.1 TCP错误恢复机制</p>
+
+<p>5.1.1 超时重传(RTO, Retransmission timeout)：每次重传RTO翻倍，若超过最大值则放弃重传。</p>
+
+<p>5.1.2 重复确认和快速重传：接收方发送3个重复ACK，代表数据包丢失，申请快速重传。</p>
+
+<p>5.1.3 流控制：通过调整窗口大小控制接受的数据包大小。</p>
+
+<p>5.2 网络高延迟的原因</p>
+
+<ul>
+  <li>线路延迟</li>
+  <li>客户端延迟</li>
+  <li>服务器延迟</li>
+  <li>网络基线：通过基线的帮助，比对整体流量快照
+    <ul>
+      <li>站点基线</li>
+      <li>主机基线</li>
+      <li>应用程序基线</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-安全领域数据包分析">6. 安全领域数据包分析</h3>
+
+<ul>
+  <li>nmap使用SYN半开扫扫描判断受害者的端口是否开放</li>
+  <li>通过系统扫描指纹术，判断对方机器的种类和类型</li>
+  <li>ARP缓存中毒攻击，遭到中间人攻击</li>
+  <li>远程访问特洛伊木马</li>
+</ul>
+
+<h3 id="7-无线网络数据包">7. 无线网络数据包</h3>
+
+<p>工作在数据链路层</p>
+
+<p>7.1 无线网卡模式</p>
+
+<ul>
+  <li>被管理模式：无线客户端正常连接无线接入点(WAP, Wireless Access Point)时的使用模式</li>
+  <li>Ad hoc模式：通信双方共同承担WAP的指责</li>
+  <li>主模式：高端无线网卡成为其他主机的WAP</li>
+  <li>监听模式</li>
+</ul>
+
+<p>7.2 802.11数据包结构</p>
+
+<ul>
+  <li>管理：包括认证、关联、信号
+    <ul>
+      <li>管理帧头部信息
+        <ul>
+          <li>Timestamp</li>
+          <li>Beacon Intercal</li>
+          <li>Capability Information</li>
+          <li>SSID Parameter Set</li>
+          <li>Supported Rates</li>
+          <li>DS Parameter</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>控制：包括请求发送、准予发送</li>
+  <li>数据</li>
+  <li>beacon：广播数据包，通知无线客户端存在可用WAP</li>
+</ul>
+
+<p>在Packet List增加无线专用列：</p>
+
+<ul>
+  <li>RSSI(for Received Signal Strength Indication):捕获数据包射频强度</li>
+  <li>TX Rate(for Transmission Rage):捕获数据包数据率</li>
+  <li>Frequency/Channel:捕获数据包频率和信道</li>
+</ul>
+
+<p>无线网络安全</p>
+
+<ul>
+  <li>WEP(Wired Equivalent Privacy)：不安全</li>
+  <li>WPA(Wi-Fi Protected Access)：常用的安全协议</li>
+</ul>
+
+<hr />
+<p>附录：</p>
+
+<ul>
+  <li>tcpdump</li>
+  <li>Scapy：基于python的数据包操纵程序</li>
+  <li>SANS SEC 503安全入侵检测深入课程</li>
+</ul>
+
+  </section>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2018/04/Go_learning/" data-toggle="tooltip" data-placement="top" title="Go language">Last Blog：  <span>Go language</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/08/Tensorflow_Learning/" data-toggle="tooltip" data-placement="top" title="Tensorflow Learning">Next Blog：  <span>Tensorflow Learning</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      // Here is an example,
+      this.page.url = "https://c0ldstudy.github.io/2018/05/CTF_MISC/";
+      this.page.identifier = "/2018/05/CTF_MISC/";
+    };
+
+    // You should be able to get the following lines of code from your Disqus admin.
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//c0ldstudy-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">
+          <div clas="recordings" style="display:flex;justify-content:space-around;">
+          <div class="twitter_display">
+            <div class='jekyll-twitter-plugin'><a class="twitter-timeline" data-width="300" data-tweet-limit="1" href="https://twitter.com/JiacenXu?ref_src=twsrc%5Etfw">Tweets by JiacenXu</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+          </div>
+          <div class="github_chart">
+            <img src="http://ghchart.rshah.org/409ba5/C0ldstudy" alt="C0ldstudy's Blue Github chart"/>
+            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=PWaejm3rz2TG6HOtwcekX2kM9kPWz2aP6GYhuOVoNpA&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+          </div>
+        </div>
+            <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/c0ldstudy" title="@c0ldstudy 的 Github" target="_blank">
+              <i class='fab fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          <!-- Twitter -->
+          <li class="navigation__item_social">
+            <a href="https://twitter.com/JiacenXu" title="@JiacenXu" target="_blank">
+              <i class='fab fa-twitter fa-2x'></i>
+              <span class="label">Twitter</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- LinkedIn -->
+          <li class="navigation__item_social">
+            <a href="https://www.linkedin.com/in/jiacen-xu-021536105/" title="@jiacen-xu-021536105" target="_blank">
+              <i class='fab fa-linkedin fa-2x'></i>
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:coldstudyxu@gmail.com" title="Contact me">
+              <i class='fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+          </ul>
+        </nav>
+        </div>
+
+        <div class = "footer_div_counter">
+           <p class="copyright text-muted">
+            Copyright &copy; Jason Xu 2022 Theme by <a href="http://c0ldstudy.github.io/">C0ldstudy</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=c0ldstudy&repo=c0ldstudy.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_uv" style='display:none'>
+          <span id="busuanzi_value_site_uv"></span> People Visited!
+          </span>
+        </div>
+        </div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>

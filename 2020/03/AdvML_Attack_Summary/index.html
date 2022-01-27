@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Adversarial Machine Learning Attack papers Summary</title>
+  <meta name="description" content="In this blog, I summarize the top nine most important papers related to adversarial DNN attacking from the paper which promotes adversarial examples firstly ...">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Adversarial Machine Learning Attack papers Summary">
+  <meta name="twitter:description" content="In this blog, I summarize the top nine most important papers related to adversarial DNN attacking from the paper which promotes adversarial examples firstly ...">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Adversarial Machine Learning Attack papers Summary">
+  <meta property="og:description" content="In this blog, I summarize the top nine most important papers related to adversarial DNN attacking from the paper which promotes adversarial examples firstly ...">
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="canonical" href="http://C0ldstudy.github.io/2020/03/AdvML_Attack_Summary/">
+  <link rel="alternate" type="application/rss+xml" title="Jason Xu" href="http://C0ldstudy.github.io/feed.xml">
+
+  <!-- kramdown-math-katex latex sytax for markdown -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- google 统计 -->
+   
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-118980599-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">
+                Homepage
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/timeline" title="timeline" class="btn-mobile-menu__icon">
+                      Timeline
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      Tag
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/photography" title="photography" class="btn-mobile-menu__icon">
+                      Photography
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      About me
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 Jason Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2>
+                            
+                                C0ldstudy
+                            
+                        </h2>
+                        <p>
+                           
+                                Machine Learning / Security
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jason Xu" class="blog-button">Jason Xu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Personal Station</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">In the end, we only regret the chances we didn't take.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        <p class="panel-cover__description">🇨🇳Shanghai -> 🇭🇰Hong Kong -> 🇺🇸Irvine</p>
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Homepage</a></li>
+                
+                  <li class="navigation__item"><a href="/timeline" title="timeline">Timeline</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">Tag</a></li>
+                
+                  <li class="navigation__item"><a href="/photography" title="photography">Photography</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">About me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+>
+</script>
+
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">Adversarial Machine Learning Attack papers Summary</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2020-03-22 00:00:00 -0700" itemprop="datePublished" class="post-meta__date date">2020-03-22 | </time>
+      <span id="busuanzi_container_page_pv" style='display:none'> Read: <span id="busuanzi_value_page_pv"></span> Times</span>
+
+    </div>
+  </header>
+
+  <section class="post">
+
+    <p>In this blog, I summarize the top nine most important papers related to adversarial DNN attacking from the paper which promotes adversarial examples firstly to the advanced attacking methods such as C&amp;W attack, BPDA and EOT.</p>
+
+<p>FYI, I find a very useful <a href="https://www.youtube.com/watch?v=KOrHhTSam_o&amp;ab_channel=DS3YouTube">lecture</a> from Prof. Somesh Jha to summarize both the attack and defense on Machine Learning.</p>
+
+<h2 id="1-poisoning-attack-against-support-vector-machines">1. Poisoning attack against support vector machines</h2>
+
+<p>Author-Time-ArXiv: Battista Biggio, Blaine Nelson, Pavel Laskov;ICML 2012; 1206.6389</p>
+
+<p>Keywords: Targeted Attack,</p>
+
+<p>The paper uses the gradient ascent attack on SVM to increase the model’s test error.</p>
+
+<h2 id="2-intriguing-properties-of-neural-networks">2. Intriguing properties of neural networks</h2>
+
+<p>Author-Time-ArXiv: Ian Goodfellow etc.;ICLR2014; 1312.6199</p>
+
+<p><strong>Key points</strong>:</p>
+
+<ul>
+  <li>The <strong>input-space</strong> contains the semantic information in neural networks instead of individual units.</li>
+  <li>The input-output mapping is <strong>discontinuous</strong> so the perturbation will cause flips on prediction.</li>
+  <li>The perturbation is <strong>transferable</strong>.</li>
+  <li>Promoting a targeted attack based on box-constrained L-BFGS which is a matrix form of Newton’s method for optimization.</li>
+</ul>
+
+<h3 id="21-introduction">2.1 Introduction</h3>
+
+<p>There are two counter-intuitive properties of DNN which are the semantic meaning of individual units and the stability of neural network with small perturbations to inputs.</p>
+
+<p>Firstly, they conclude that <strong>the whole activation space</strong> contains the semantic information instead of the last feature layers’ bias used in the researches before. Then, they find a small perturbation is able to change the network’s prediction. They take the <strong>training data which are perturbed by maximizing the prediction error</strong> as <strong><em>adversarial examples</em></strong>. What’s more, they figure out these adversarial examples are able to be transferred to another model trained on a different subset of the dataset. Consequently, the DNN model structure is connected to the data distribution in a non-obvious way.</p>
+
+<h3 id="22-blind-spots-in-neural-networks">2.2 Blind Spots in Neural Networks</h3>
+
+<p>The regions in input space mapped by the output unit contain no training examples nearby. These regions share label and the statistical structure of the original inputs. On the other hand, <strong>the smoothness assumption that predictions changed based on perturbations smoothly does not hold</strong>. So the local generalization of the training data are useful for finding adversarial examples in the input space.</p>
+
+<h5 id="formal-description">Formal Description</h5>
+
+<p>Minimize \(c\cdot\vert\vert r\vert\vert_2+loss_f(x+r,l)\) subject to \(x+r\in [0,1]^m\)</p>
+
+<p>\(f:\mathbb{R}^m\rightarrow\{1\dots k\}\) is a classifier mapping image pixel value vectors to a discrete label set.</p>
+
+<p>\(loss_f:\mathbb{R}^m\times\{1\dots k\}\rightarrow\mathbb{R}^+\) is a continuous loss function.</p>
+
+<p>Target label \(l\in\{1\dots k\}\)</p>
+
+<h2 id="3-explaining-and-harnessing-adversarial-examples">3. Explaining and Harnessing Adversarial Examples</h2>
+
+<p>Author-Time-ArXiv: Ian Goodfellow etc.; ICLR2015;1412.6572</p>
+
+<p><strong>Key Points</strong>:</p>
+
+<ul>
+  <li>The main cause of adversarial examples is DNN’s linear nature and the requirement is the <strong>sufficient dimensional inputs</strong>.</li>
+  <li>Promoting <strong>Fast Gradient Sign Method</strong> to generate adversarial examples.</li>
+  <li>Exploiting <strong>adversarial training</strong> on simple models and DNN models.</li>
+</ul>
+
+<h3 id="31-the-linear-explanation-and-perturbation">3.1 The Linear Explanation and Perturbation</h3>
+
+<p>The appearance of adversarial examples is because the DNNs do not learn the true concepts of the whole data to complete the tasks. They are just trained under some discontinuous dataset. Consequently, the linearity of DNN models means that many small perturbations which cannot be detect by eyes will add up to a large change to output.</p>
+
+<p>A simple linear model can have adversarial examples if its input has enough dimensionality which is the reason softmax regression is vulnerable. So the paper promotes <strong>the fast gradient sign method</strong>. It generates adversarial examples to get an optimal max-norm constrained perturbation.</p>
+
+\[\eta=\epsilon sign(\nabla_xJ(\theta,x,y))\]
+
+<p>\(\theta\) is the model parameters. \(x\) is the input while \(y\) is the target(true) label. \(J(\theta,x,y)\) is the loss function and its gradient of \(x\) will represent the perturbation in every direction of \(x\).</p>
+
+<h3 id="32-adversarial-training">3.2 Adversarial Training</h3>
+
+<p><strong>More work Needed</strong>: A example to use logistic regression model to train on adversarial examples with weight decay. While the problem is these adversarial examples will be under-fitting.</p>
+
+<p>The paper also uses adversarial training on DNN models. The objective function based on FGSM is an effective regularizer:</p>
+
+\[\tilde J(\theta,x,y)=\alpha J(\theta,x,y)+(1-\alpha)J(\theta,x+\epsilon sign(\nabla_xJ(\theta,{x},y)))\]
+
+<p>It means that the adversarial examples update through training.</p>
+
+<h3 id="33-exploit">3.3 Exploit</h3>
+
+<p>The adversarial examples appear in a contiguous subspace defined by FGSM. The paper also tries to confirm two hypotheses.</p>
+
+<ul>
+  <li>
+    <p>Adversarial training provides more constraint on the training process but the improvement is not enough.</p>
+  </li>
+  <li>
+    <p>Averaging several models which aims to wash out adversarial examples has only limited resistance.</p>
+  </li>
+</ul>
+
+<h3 id="appendix-rubbish-class-examples">Appendix: Rubbish Class Examples</h3>
+
+<p>These examples are degenerate inputs which are meaningless to any category (like noise) but are positive classes in the DNN models. The best result of these examples is prediction is low at any category.</p>
+
+<p><strong>Guess</strong>:</p>
+
+<ol>
+  <li>Adversarial Examples exist because DNN cannot restrict all directions in the input space which will lead to a bad accuracy of the validation set.</li>
+  <li>We can use constraints of every classes in the input space to promote the robustness of DNN models.</li>
+</ol>
+
+<h2 id="4-adversarial-examples-in-the-physical-world">4. Adversarial Examples In the Physical World</h2>
+
+<p>Author-Time-ArXiv: Alexey Kurakin etc.; ICLR2017; 1607.02533</p>
+
+<p><strong>Key Points</strong>:</p>
+
+<ul>
+  <li>The ML systems in physical world scenarios are vulnerable to adversarial examples.</li>
+  <li>Promoting iterative FGSM and Least-likely Class Attack.</li>
+  <li>Exploiting the data transformation’s impact on adversarial examples.</li>
+</ul>
+
+<h3 id="41-iterative-fast-gradient-sign-method">4.1 Iterative Fast Gradient Sign Method</h3>
+
+<p>The paper puts forward two iterative FGSMs which are basic iterative method and iterative least-likely class method.</p>
+
+<h4 id="411-basic-iterative-fgsm">4.1.1 Basic iterative FGSM</h4>
+
+<p>The basic iterative method which is a <strong>non-targeted attack</strong> generates adversarial examples as follow:</p>
+
+\[X_0^{adv} = X, X_{N+1}^{adv}=Clip_{X,\epsilon}\{X_N^{adv}+\alpha sign(\nabla_XJ(X_N^{adv},y_{true}))\}\]
+
+<p>\(X\) is a 3-D tensor(width, height, depth) which are integers in the range [0, 255]. \(y_{true}\) is the ground truth. \(J({X},y)\) is cross-entropy cost function of neural network. \(Clip_{X,\epsilon}\{X'\}\) clip the image per-pixel so the result image is \(L_\infty\) \(\epsilon\)-neighborhood of the original image.</p>
+
+\[Clip_{X,\epsilon}\{X'\}(x,y,z)=min\{255, X(x,y,z)+\epsilon,max\{0,X(x,y,z)-\epsilon,X'(x,y,z)\}\}\]
+
+<p>where \({X}(x,y,z)\) is the value of \(z\) of the image \({X}\) at coordinated \((x,y)\).</p>
+
+<h4 id="412-iterative-least-likely-class-method">4.1.2 Iterative least-likely Class Method</h4>
+
+<p>The iterative least-likely class method, also called <strong>LLC</strong>, is a <strong>targeted attack</strong>. The target label is defined as \(y_{LL}=\underset{x}{\mathrm{argmin}}\{p(y\vert {X})\}\) which presents the least likely class in the whole categories.</p>
+
+\[{X}_0^{adv} = {X}, {X}_{N+1}^{adv}=Clip_{X,\epsilon}\{X_N^{adv}-\alpha sign(\nabla_XJ({X}_N^{adv},y_{LL}))\}\]
+
+<h3 id="42-adversarial-examples-in-real-world">4.2 Adversarial Examples in Real World</h3>
+
+<p>The transformations such as blur, noise and JPEG encoding have impact on destructing adversarial examples while changing brightness or contrast is not useful.</p>
+
+<h2 id="5-the-limitations-of-deep-learning-in-adversarial-settings">5. The Limitations of Deep Learning in Adversarial Settings</h2>
+
+<p>Author-Time-ArXiv: Nicolas Papernot etc.; EuroS&amp;P2016; 1511.07528</p>
+
+<p><strong>Key Points</strong>:</p>
+
+<ul>
+  <li>Promoting Jacobian-based Saliency Map Attack for acyclic DNN models.</li>
+</ul>
+
+<p>In general, the Jacobian-based saliency map constructs the saliency map, the impact of input based on the output’s gradient to find the most important features and then changes them to generate adversarial examples.</p>
+
+<p>The JSM method iterates the following steps when \(F(X^*)\ne Y^*\) and \(\vert\vert \delta_X\vert\vert &lt; \Upsilon\)</p>
+
+<ol>
+  <li>
+    <p>Forward Derivative of a Deep Neural Network from the input to the layer before output</p>
+
+    <p>A general idea to calculate the forward derivative for a given \(X\): \(\nabla F(X)=\frac{\partial F(X)}{\partial X}=[\frac{\partial F_j(X)}{\partial x_i}]_{i,j\in 1\dots M}\) and the formula is essentially the Jacobian of the function.</p>
+
+    <p>As to the DNN model, the Jacobian can be computed as follow:</p>
+
+\[\frac{\partial F_j(X)}{\partial x_i}=(W_{n+1,j}\cdot\frac{\partial H_n}{\partial x_i})\times\frac{\partial f_{n+1,j}}{\partial x+i}(W_{n+1,j}\cdot H_n+b_{n+1,j})\]
+
+    <p>where the output neuron \(j\) computes the following expression: \(F_j(X)=f_{n+1,j}(W_{n+1,j}\cdot H_n+b_{n+1.j})\)</p>
+  </li>
+  <li>
+    <p>Constructing the Saliency Map \(S(X,t)\) which aims to increase the probabilities of target label \(t\) and decrease the probabilities of other labels.</p>
+
+\[S(X,t)[i]=\begin{cases} 0~if\frac{F_t(X)}{\partial X_i}&lt;0 ~or~ \mathop{\Sigma}_\limits{j\ne t}\frac{F_j(X)}{\partial X_i}&gt;0\\
+(\frac{F_t(X)}{\partial X_i})\vert \sum_{j\ne t}\frac{F_j(X)}{\partial X_i}\vert~otherwise\end{cases}\]
+
+    <p>where \(t=\mathop{\arg\max}_\limits{j}F_j(X)\)</p>
+  </li>
+  <li>
+    <p>Modifying \(X_{i_{max}}\) subject to \(i_{max}=\mathop{\arg\max}_\limits{i}S(X,Y^*)[i]\) and adding to the original sample. And the perturbation adding to the input will be set as \(+/-1\) which will increase or decrease the pixel intensities.</p>
+  </li>
+</ol>
+
+<h2 id="6-towards-evaluating-the-robustness-of-neural-networks">6. Towards Evaluating the Robustness of Neural Networks</h2>
+
+<p>The details are <a href="/2020/02/C&amp;W_Attack">available</a> on another blog.</p>
+
+<h2 id="7-towards-deep-learning-models-resistant-to-adversarial-attacks">7. Towards Deep Learning Models Resistant to Adversarial Attacks</h2>
+
+<p>Author-Time-ArXiv: Aleksander Madry etc.; ICLR2018; 1706.060083</p>
+
+<p><strong>Key Points</strong>:</p>
+
+<ul>
+  <li>Promoting Projected Gradient Descent Method(<strong>PGD</strong>).</li>
+</ul>
+
+<p>The essence of PGD attack is that a robust DNN model is required to improve a robust attack. So it will improve both the DNN models and adversarial examples at the same time. The paper defines DNN attack as a <strong>min-max</strong> optimization problem instead of a minimization or maximization problem:</p>
+
+<p>\(\mathop{\min}_\limits{\theta} \rho(\theta)\), where \(\rho(\theta)=\mathbb{E}_{(x,y)\sim D}[max_{\delta\in S}L(\theta,x+\delta,y)]\)</p>
+
+<p>\(D\) is the data contribution. \(\mathbb{E}\) is the average error in the course of training. In the inner max part, it will find the specific \(\delta\) to maximize the loss while in the outer min part, it will use different model parameters \(\theta\) to reduce the average error.</p>
+
+<p>The paper uses FGSM and iterative FGSM which is essentially projected gradient descent. The definition of the PGD is displayed as follow:</p>
+
+\[x^{t+1}=\prod_{x+S}(x^t+\alpha sign(\nabla_xL(\theta,x,y)))\]
+
+<p>\(\prod_{x+S}\) means projecting the input in the range of \(x+S\). And the definition of projection can be described as follows:</p>
+
+\[min_x f(x)~s.t.~x\in S\]
+
+\[p^{t+1} = x^t+\alpha sign(\nabla f(x^t)) \\ x^{t+1} = \text{arg} \min_{x \in C} \vert\vert p^{t+1}-x\vert\vert\]
+
+<h2 id="8-obfuscated-gradients-give-a-false-sense-of-security-circumventing-defenses-to-adversarial-examples">8. Obfuscated Gradients Give a False Sense of Security: Circumventing Defenses to Adversarial Examples</h2>
+
+<p>Author-Time-ArXiv: Anish Athalye etc; ICML2018 Best Paper; 1802.00420</p>
+
+<p><strong>Key Points</strong>:</p>
+
+<ul>
+  <li>Promoting Backward Pass Differentiable Approximation(<strong>BPDA</strong>) which is useful on obfuscated-gradient-based defenses.</li>
+  <li>Displaying that BPDA has a great performance on several gradient-masking based defense methods from ICLR 2018.</li>
+</ul>
+
+<p>Basically, the advanced defense method is to break gradient descent by gradient masking. So in the paper, three defense obfuscated gradients are discussed to evaluate the performance of BPDA.</p>
+
+<ul>
+  <li>Shattered Gradient</li>
+  <li>Stochastic Gradients</li>
+  <li>Exploding and Vanishing Gradients</li>
+</ul>
+
+<h3 id="81-the-algorithm-of-backward-pass-differentiable-approximation">8.1 The Algorithm of Backward Pass Differentiable Approximation</h3>
+
+<p>In general, the BPDA uses the following steps <strong>based on iterative optimization-based attack</strong>(PGD for \(l_\infty\) and C&amp;W attack for \(l_2\)):</p>
+
+<p><strong>Algorithm</strong>:</p>
+
+<p>Let \(f(\cdot)=f^{1\dots j}(\cdot)\) be a neural network and let \(f^i(\cdot)\) be a non-differentiable layer.</p>
+
+<ol>
+  <li>To approximate \(\nabla_xf(x)\), find a differentiable approximation identity function \(g(x)\) such that \(g(x)\approx f^i(x)\).</li>
+  <li>
+    <p>Calculate \(\nabla_xf(x)\) by performing the forward pass through \(f( \cdot )\).</p>
+  </li>
+  <li>On the backward pass, replacing \(f^i(x)\) with \(g(x)\).</li>
+</ol>
+
+<p>In contrast to standard PGD or C&amp;W attack, BPDA requires more iterations of gradient descent.</p>
+
+<p>The paper lists 7 accepted papers from ICLR2018 and takes them as the evaluation to show the great performance of BPDA.</p>
+
+<h3 id="82-gradient-shattering">8.2 Gradient Shattering</h3>
+
+<p>At first, it evaluates the non-obfuscated gradients defense like adversarial training and cascade adversarial training which trains a first model to generate adversarial examples and adds them to a second model on the augmented dataset in a single step for efficiency. Since these two defenses are weaker than the later defenses, the paper does not discuss them deeply.</p>
+
+<h4 id="821-thermometer-encoding">8.2.1 Thermometer Encoding</h4>
+
+<p>The definition of thermometer encoding is like that. Given an image \(x\), for each pixel color \(x_{i,j,c}\), the $l$-level thermometer encoding \(\tau(x_{i,k,c})\) is a \(l\)-dimensional vector where \(\tau(x_{i,j,c})_k=1\) if \(x_{i.k.c}&gt;k/l\) and \(0\) otherwise. For example, \(\tau(0.66)=1111110000\) is a 10-level thermometer encoding.</p>
+
+<p>In general, thermometer encoding defense can be taken as a way to cause gradient shattering so it is impossible to perform gradient descent on such kind of DNNs.</p>
+
+<p>As to BPDA, the paper sets \(g(x)=min(max(x_{i,j,c}-k/l,0),1)\) and replaces the backwards pass with \(g(x)\).</p>
+
+<p>Actually \(\tau(x_{i,j,c})_k=floor(g(x))\). The result shows a great performance of BPDA.</p>
+
+<h4 id="822-input-transformations">8.2.2 Input Transformations</h4>
+
+<p>The defense method uses several input transformations to counter adversarial examples such as image cropping and rescaling, bit-depth reduction and JPEG compression.</p>
+
+<p>However, the paper points out that it is possible to bypass each defense respectively and the ensembles of these defenses are not stronger than the sub-defense. The paper uses EOT and BPDA (<em>the paper does not provide details</em>) to circumvent image cropping and rescaling, JPEG compression, image quilting. And the performance of BPDA is also pretty good.</p>
+
+<h4 id="823-local-intrinsic-dimensionality">8.2.3 Local Intrinsic Dimensionality</h4>
+
+<p>LID is a general-purpose metric that measures the distance from an input to its neighbors.</p>
+
+<p>The paper discovers LID does not detect high confidence adversarial examples even the adversarial examples are oblivious to the defense.</p>
+
+<h3 id="83-stochastic-gradients">8.3 Stochastic Gradients</h3>
+
+<h4 id="831-stochastic-activation-pruning">8.3.1 Stochastic Activation Pruning</h4>
+
+<p>SAP randomly drops some neurons of each layer to 0 with probability proportional to their absolute value. Essentially, SAP applies dropout at each layer based on neurons’ weighted distribution. Then these dropped out neurons are retrained and scaled up to retain accuracy.</p>
+
+<p>Implementing SAP decreases clean classification accuracy slightly while increasing robustness. And different levels of drop probability  has similar robustness.</p>
+
+<p>The paper calculates gradient by \(\sum_{i=1}^k\nabla_xf(x)\) where \(k=10\) to achieve useful gradients instead of \(\nabla_xf(x)\). Finally, the result of the attack is good as well.</p>
+
+<h4 id="832-mitigating-through-randomization">8.3.2 Mitigating Through Randomization</h4>
+
+<p>The defense adds a randomization layer before the input to the classifier by rescaling and zero-pading the images. The defense dismisses attack by providing lots of choices of randomness.</p>
+
+<p>The paper finds the ensemble attack used by the defense authors overfits to these fixed randomization. So the paper uses EOT and optimize the distribution of transformations to bypass the defense.</p>
+
+<p>The result of the attack is good.</p>
+
+<h3 id="84-vanishing--exploding-gradients">8.4 Vanishing &amp; Exploding Gradients</h3>
+
+<h4 id="841-pixel-defend">8.4.1 Pixel Defend</h4>
+
+<p>The defense’s authors argue that adversarial examples mainly lie in the low-probability region of the data distribution. So PixelDefend purifies adversarially perturbed images before the classification by using a greedy decoding procedure to approximate finding the highest probability example within an \(\epsilon\)-ball of the input image.</p>
+
+<ol>
+  <li>
+    <p>Firstly, the joint distribution over all pixels is defined by the product of conditional distributions which originate from <strong>PixelCNN</strong>. \(X=[x_1,x_2,\dots,x_n]\) presents an image.</p>
+
+\[p_{CNN}(X)=\prod_ip_{CNN]}(x_i\vert x_{1:(i-1)})\]
+
+    <p>Every conditional distribution is a multinomial with a 256-way softmax layer based on previous RGB channels as well and each channel variable \(x_i\) takes 0 to 255 distinct values. The higher the joint distribution \(P_{CNN}\), the more suitable it is to the dataset</p>
+  </li>
+  <li>
+    <p>The general distribution of datasets is described by <strong>bits per dimension</strong>. \(I,J,K\) are the size and channel of images.</p>
+
+    <p>\(BPD(X)=-logp_{CNN}(X)/(I\times J\times K\times log2)\).</p>
+  </li>
+  <li>
+    <p>The defense’s authors use hypothesis testing to detect adversarial examples based on distribution.</p>
+  </li>
+  <li>
+    <p>Returning benign images to the training distribution.</p>
+
+\[max_{X^*}p_{CNN}(X^*)\\s.t.\vert\vert X^*-X\vert\vert_{\infty}\le\epsilon_{defend}\]
+  </li>
+</ol>
+
+<p>The paper avoids computing gradients by approximating gradients with BPDA.</p>
+
+<h4 id="842-defense-gan">8.4.2 Defense-Gan</h4>
+
+<p>Defense-Gan uses GAN to project samples onto the manifold of the generator before classification.</p>
+
+<p>The BPDA attack does not have a good performance on Defense-Gan.</p>
+
+<h2 id="9-synthesizing-robust-adversarial-examples">9. Synthesizing Robust Adversarial Examples</h2>
+
+<p>Author-Time-ArXiv: Anish Athalye etc.; ICML2018; 1707.07397</p>
+
+<p><strong>Key Points</strong>:</p>
+
+<ul>
+  <li>Promoting Expectation Over Transformation(<strong>EOT</strong>) which proves the impact of a single adversarial example exists over all of the transformations.</li>
+  <li>Fabricating the first 3D physical-world adversarial objects to fool classifiers in the real world.</li>
+</ul>
+
+<p>The basic approach to generate adversarial examples which aims to maximize the possibility of target label based on the perturbation is not useful when angle and viewpoint changes. Consequently, EOT uses a chosen distribution \(T\) of transformation functions \(t\) to adjust the input \(x\) as  \(t(x)\). The perturbation is also set by the expected effective distance as: \(\delta=\mathbb{E}_{t\sim T}[d(t(x'),t(x))]\). EOT aims to minimize the visual difference between \(t(x')\) and \(t(x)\). So the optimization problem has been:</p>
+
+<p>\(\mathop{\arg\max}\limits_{x'}\mathbb{E}_{t\sim T}[logP(y_t\vert t(x'))]\), subject to \(\mathbb{E}_{t\sim T}[d(t(x'), t(x))]&lt;\epsilon, x\in[0,1]^d\).</p>
+
+<p>The distribution \(T\) can model perceptual distortions like rotation, translation or noising. EOT uses SGD to maximize the objective. In the 2D cases, \(t(x)=Ax+b\) is used for random transformations. EOT also sets distance as \(l_2\) norm in LAB color space which is a perceptually uniform color space in Euclidean distance. So the optimization is set as follow and using PGD to maximize the objective before clipping the set of valid inputs:</p>
+
+\[\mathop{\arg\max}_\limits{x'}\mathbb{E}_{t\sim T}[logP(y_t\vert t(x'))-\lambda\vert\vert LAB(t(x'))-LAB(t(x))\vert\vert_2]\]
+
+
+  </section>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2020/03/Evaluation_of_Adversarial_Example_Defenses/" data-toggle="tooltip" data-placement="top" title="Evaluation of Adversarial Example Defenses">Last Blog：  <span>Evaluation of Adversarial Example Defenses</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2020/04/VS_Code_Plugins/" data-toggle="tooltip" data-placement="top" title="Visual Studio Code Plugins">Next Blog：  <span>Visual Studio Code Plugins</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      // Here is an example,
+      this.page.url = "https://c0ldstudy.github.io/2020/03/AdvML_Attack_Summary/";
+      this.page.identifier = "/2020/03/AdvML_Attack_Summary/";
+    };
+
+    // You should be able to get the following lines of code from your Disqus admin.
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//c0ldstudy-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">
+          <div clas="recordings" style="display:flex;justify-content:space-around;">
+          <div class="twitter_display">
+            <div class='jekyll-twitter-plugin'><a class="twitter-timeline" data-width="300" data-tweet-limit="1" href="https://twitter.com/JiacenXu?ref_src=twsrc%5Etfw">Tweets by JiacenXu</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+          </div>
+          <div class="github_chart">
+            <img src="http://ghchart.rshah.org/409ba5/C0ldstudy" alt="C0ldstudy's Blue Github chart"/>
+            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=PWaejm3rz2TG6HOtwcekX2kM9kPWz2aP6GYhuOVoNpA&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+          </div>
+        </div>
+            <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/c0ldstudy" title="@c0ldstudy 的 Github" target="_blank">
+              <i class='fab fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          <!-- Twitter -->
+          <li class="navigation__item_social">
+            <a href="https://twitter.com/JiacenXu" title="@JiacenXu" target="_blank">
+              <i class='fab fa-twitter fa-2x'></i>
+              <span class="label">Twitter</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- LinkedIn -->
+          <li class="navigation__item_social">
+            <a href="https://www.linkedin.com/in/jiacen-xu-021536105/" title="@jiacen-xu-021536105" target="_blank">
+              <i class='fab fa-linkedin fa-2x'></i>
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:coldstudyxu@gmail.com" title="Contact me">
+              <i class='fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+          </ul>
+        </nav>
+        </div>
+
+        <div class = "footer_div_counter">
+           <p class="copyright text-muted">
+            Copyright &copy; Jason Xu 2022 Theme by <a href="http://c0ldstudy.github.io/">C0ldstudy</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=c0ldstudy&repo=c0ldstudy.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_uv" style='display:none'>
+          <span id="busuanzi_value_site_uv"></span> People Visited!
+          </span>
+        </div>
+        </div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>

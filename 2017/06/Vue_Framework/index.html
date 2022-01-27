@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Vue Framework</title>
+  <meta name="description" content="6/190. Little Research  vue-cli has some different templates such as webpack, webpack-simple and so on. Use vue list to list all available official templates...">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vue Framework">
+  <meta name="twitter:description" content="6/190. Little Research  vue-cli has some different templates such as webpack, webpack-simple and so on. Use vue list to list all available official templates...">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vue Framework">
+  <meta property="og:description" content="6/190. Little Research  vue-cli has some different templates such as webpack, webpack-simple and so on. Use vue list to list all available official templates...">
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="canonical" href="http://C0ldstudy.github.io/2017/06/Vue_Framework/">
+  <link rel="alternate" type="application/rss+xml" title="Jason Xu" href="http://C0ldstudy.github.io/feed.xml">
+
+  <!-- kramdown-math-katex latex sytax for markdown -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+
+
+<!-- 站点统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- google 统计 -->
+   
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-118980599-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">
+                Homepage
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/timeline" title="timeline" class="btn-mobile-menu__icon">
+                      Timeline
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      Tag
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/photography" title="photography" class="btn-mobile-menu__icon">
+                      Photography
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      About me
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+
+
+
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 Jason Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2>
+                            
+                                C0ldstudy
+                            
+                        </h2>
+                        <p>
+                           
+                                Machine Learning / Security
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jason Xu" class="blog-button">Jason Xu</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Personal Station</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">In the end, we only regret the chances we didn't take.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        <p class="panel-cover__description">🇨🇳Shanghai -> 🇭🇰Hong Kong -> 🇺🇸Irvine</p>
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Homepage</a></li>
+                
+                  <li class="navigation__item"><a href="/timeline" title="timeline">Timeline</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">Tag</a></li>
+                
+                  <li class="navigation__item"><a href="/photography" title="photography">Photography</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">About me</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">Vue Framework</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2017-06-19 00:00:00 -0700" itemprop="datePublished" class="post-meta__date date">2017-06-19 | </time>
+      <span id="busuanzi_container_page_pv" style='display:none'> Read: <span id="busuanzi_value_page_pv"></span> Times</span>
+
+    </div>
+  </header>
+
+  <section class="post">
+
+    <h3 id="619">6/19</h3>
+<h4 id="0-little-research">0. Little Research</h4>
+<ol>
+  <li>vue-cli has some different templates such as webpack, webpack-simple and so on. Use <code class="language-plaintext highlighter-rouge">vue list</code> to list all available official templates. The useful template I used is wepack which is a full-featured version.</li>
+  <li>vue upload module: First the file handle need to be caught and then submit the post type method to connnect the server.</li>
+  <li>I have used a plugin to offer a editor for users to upload bulletins. <a href="https://www.tiny.cloud/docs/quick-start/">Tinymce</a>. The tinymce-vue is not free so I use a intergrated editor from others on the Internet.</li>
+</ol>
+
+<h4 id="1-mvvm模式">1. MVVM模式</h4>
+<p>Vue use MVVM model which means Model, View and Viewmodel. Model means data. View means UI and viewmodel means tha logic between them. View and viewmodel communicaates with each other by data binding. While viewmodel and model communicates with each other by notification.</p>
+
+<p><img src="/images/posts/vue/p1.png" alt="p1" /></p>
+
+<h4 id="2-vuejs-common-commands">2. Vue.js Common commands</h4>
+<ul>
+  <li>v-model: 在表单元素创建双向数据绑定
+<code class="language-plaintext highlighter-rouge">&lt;input type="text" v-model="message"/&gt;</code></li>
+  <li>v-if: 条件渲染指令，可以通过布尔变量判断。
+<code class="language-plaintext highlighter-rouge">&lt;h1 v-if="yes"&gt;Yes!&lt;/h1&gt;</code></li>
+  <li>v-show: 只渲染css的style属性，这个标签会一直存在于DOM中，如果设置为false，只是样式会消失。</li>
+  <li>v-else: 跟在v-if/v-show之后。</li>
+  <li>v-for:渲染一个列表。可以使用template标签实现只循环里面的内容。<code class="language-plaintext highlighter-rouge">v-for="(i,index) in character"</code>。</li>
+  <li>v-bind:argument=”expression”:argument可以是class、src等，参数可以使各种变量，通过绑定变量即时反应值得变化。</li>
+  <li>v-on:监听DOM事件，事件发生后通过帮顶一个方法或者内联语句实现调用。可以用<code class="language-plaintext highlighter-rouge">@</code>进行缩写。</li>
+  <li>v-html:用于插入一段纯HTML代码。</li>
+  <li>this
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">this.$refs</code>可用于将</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="3组件">3.组件</h4>
+<h5 id="31-步骤">3.1 步骤</h5>
+<ul>
+  <li>创建组件构造器Vue.extend()</li>
+  <li>注册组件Vue.component()</li>
+  <li>使用组件</li>
+</ul>
+
+<h5 id="32-全局注册和局部注册">3.2 全局注册和局部注册</h5>
+<p>全局注册：Vue.component()</p>
+
+<p>局部注册：只能在指定实例中使用</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new Vue({
+	el: '#app',
+  	components: {
+   'my-component' : myComponent
+   }
+});
+</code></pre></div></div>
+
+<h5 id="33-父子组件">3.3 父子组件</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Parent = Vue.extend({
+// 在Parent组件内使用&lt;child-component&gt;标签
+	template :'&lt;p&gt;This is a Parent component&lt;/p&gt;&lt;child-component&gt;&lt;/child-component&gt;',
+   components: {
+// 局部注册Child组件，该组件只能在Parent组件内使用
+   'child-component': Child
+    }
+}) 
+</code></pre></div></div>
+
+<h5 id="34-组件注册语法糖">3.4 组件注册语法糖</h5>
+<p>简化过程：Vue.components第一个参数是标签名称，第二个参数是选项对象。这种方式将自动调用Vue.extend()。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vue.component('my-component1',{
+template: '&lt;div&gt;This is the first component!&lt;/div&gt;'
+})
+var vm1 = new Vue({
+ 	el: '#app1'
+})        
+</code></pre></div></div>
+
+<h5 id="35-使用props">3.5 使用props</h5>
+<p>props把父组件的数据传递给子组件。</p>
+
+<ul>
+  <li>绑定类型
+    <ul>
+      <li>单项绑定：父组件修改传递给子组件，子组件修改不影响父组件</li>
+      <li>双向绑定.sync：子组件修改的数据会回传给父组件</li>
+      <li>单次绑定.once:父组件修改不影响子组件</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="77">7/7</h3>
+<p>vue-cli是一个脚手架（即已经搭建好的框架，直接在对应文件里增加代码即可补充）。其中父组件是App.vue，里面分为template、script和style分别对应页面版面、数据结构（data）或组件（component）或函数（method）和CSS。其余子组件房子啊/scr/components文件夹下。</p>
+
+<ol>
+  <li>
+    <p>ESlint是QA（quality assurance）质量保证工具，用于避免低级错误和统一代码风格。如缩进空2格、函数名和括号之间空一格等。具体标准：
+<code class="language-plaintext highlighter-rouge">https://github.com/standard/standard/blob/master/RULES.md#javascript-standard-style</code></p>
+  </li>
+  <li>
+    <p>组件应用模板</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;div id="app"&gt;
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+  			<app-nav></app-nav>
+  			<app-view>
+  				<app-sidebar></app-sidebar>
+  				<app-content></app-content>
+  			</app-view>
+  		&lt;/div&gt;
+
+<h3 id="711">7/11</h3>
+<p>1.构造器</p>
+
+<p>拓展组件：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var MyComponent = Vue.extend({
+  // 扩展选项
+})
+// 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建
+var myComponentInstance = new MyComponent()
+</code></pre></div></div>
+
+<p>The squence to start a vue project is from index.html-&gt;main.js-&gt;App.vue.</p>
+
+<p>2.属性与方法</p>
+
+<p>Vue实例：代理data属性、<code class="language-plaintext highlighter-rouge">$data、$el、$watch</code></p>
+
+<p>3.实例生命周期</p>
+
+<p><img src="/images/posts/vue/p2.png" alt="p2" /></p>
+
+<p>4.计算属性</p>
+
+<ul>
+  <li>method和computed的区别：每次重新渲染method都会再次执行相关函数；computed计算属性依赖缓存。</li>
+  <li>watched和computed的区别：数据跟随其他数据变动时，watched是使用命令式函数回调，computed是则是构造通用函数，更加简洁。</li>
+  <li>计算属性有getter和setter</li>
+</ul>
+
+<p>5.Class和Style绑定</p>
+
+<ul>
+  <li>绑定HTML类：v-bind:class=”{}”</li>
+  <li>绑定内联样式：v-bind:style=”{}”</li>
+</ul>
+
+<p>6.条件渲染</p>
+
+<ul>
+  <li>v-if/v-else</li>
+  <li>
+    <p>复用元素：通过key使得变换placeholder时输入内容会删除</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;template v-if="loginType === 'username'"&gt;
+    &lt;label&gt;Username&lt;/label&gt;
+    &lt;input placeholder="Enter your username" key="username-input"&gt;
+  &lt;/template&gt;
+  &lt;template v-else&gt;
+    &lt;label&gt;Email&lt;/label&gt;
+    &lt;input placeholder="Enter your email address" key="email-input"&gt;
+  &lt;/template&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>v-if/v-show：v-if是条件渲染，只在条件为真时才渲染；v-show总是渲染，只是通过CSS进行变换是否显示。</li>
+</ul>
+
+<p>7.列表渲染</p>
+
+<p>v-for：可选的第二参数作为当前项的索引</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	&lt;ul id="example-2"&gt;
+	  &lt;li v-for="(item, index) in items"&gt;
+	     -  - 
+	  &lt;/li&gt;
+	&lt;/ul&gt;
+</code></pre></div></div>
+
+<p>数组更新检测，修改方法：</p>
+
+<ul>
+  <li>push()</li>
+  <li>pop()</li>
+  <li>shift()</li>
+  <li>unshift()</li>
+  <li>splice()</li>
+  <li>sort()</li>
+  <li>reverse()</li>
+</ul>
+
+<p>新旧数组替换：</p>
+
+<ul>
+  <li>filter()</li>
+  <li>concat()</li>
+  <li>slice()</li>
+</ul>
+
+<p>8.事件处理器:</p>
+
+<p><strong><em>v-on:click</em></strong></p>
+
+<ul>
+  <li>
+    <p>事件修饰符：</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;!-- 阻止单击事件冒泡 --&gt;
+  &lt;a v-on:click.stop="doThis"&gt;&lt;/a&gt;
+  &lt;!-- 提交事件不再重载页面 --&gt;
+  &lt;form v-on:submit.prevent="onSubmit"&gt;&lt;/form&gt;
+  &lt;!-- 修饰符可以串联  --&gt;
+  &lt;a v-on:click.stop.prevent="doThat"&gt;&lt;/a&gt;
+  &lt;!-- 只有修饰符 --&gt;
+  &lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+  &lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;
+  &lt;div v-on:click.capture="doThis"&gt;...&lt;/div&gt;
+  &lt;!-- 只当事件在该元素本身（比如不是子元素）触发时触发回调 --&gt;
+  &lt;div v-on:click.self="doThat"&gt;...&lt;/div&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>键值修饰符</p>
+    <ul>
+      <li>.enter</li>
+      <li>.tab</li>
+      <li>.delete (捕获 “删除” 和 “退格” 键)</li>
+      <li>.esc</li>
+      <li>.space</li>
+      <li>.up</li>
+      <li>.down</li>
+      <li>.left</li>
+      <li>.right</li>
+    </ul>
+  </li>
+</ul>
+
+<p>9.表单控件绑定</p>
+
+<ul>
+  <li>
+    <p>文本</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;input v-model="message" placeholder="edit me"&gt;
+  &lt;p&gt;Message is: &lt;/p&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>多行文本</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;span&gt;Multiline message is:&lt;/span&gt;
+  &lt;p style="white-space: pre-line"&gt;&lt;/p&gt;
+  &lt;br&gt;
+  &lt;textarea v-model="message" placeholder="add multiple lines"&gt;&lt;/textarea&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>复选框</p>
+  </li>
+</ul>
+
+<p>HTML：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	&lt;input type="checkbox" id="jack" value="Jack" v-model="checkedNames"&gt;
+	&lt;label for="jack"&gt;Jack&lt;/label&gt;
+	&lt;input type="checkbox" id="john" value="John" v-model="checkedNames"&gt;
+	&lt;label for="john"&gt;John&lt;/label&gt;
+	&lt;input type="checkbox" id="mike" value="Mike" v-model="checkedNames"&gt;
+	&lt;label for="mike"&gt;Mike&lt;/label&gt;
+	&lt;br&gt;
+	&lt;span&gt;Checked names: &lt;/span&gt;
+</code></pre></div></div>
+
+<p>JS：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	new Vue({
+	  el: '...',
+	  data: {
+	    checkedNames: []
+	  }
+	})
+</code></pre></div></div>
+
+<ul>
+  <li>单选按钮</li>
+  <li>选择列表</li>
+  <li>详见：<code class="language-plaintext highlighter-rouge">http://cn.vuejs.org/v2/guide/forms.html</code></li>
+</ul>
+
+<p><strong><em>显示输出:console.log()</em></strong></p>
+
+<h4 id="组件">组件</h4>
+
+<ul>
+  <li>父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。</li>
+</ul>
+
+<h3 id="88">8/8</h3>
+
+<ol>
+  <li>axios实现restful api</li>
+  <li>更新/安装vue库：npm install vue-loader</li>
+  <li>遇到axios文档中的例子不符合ES6标准，修改代码</li>
+</ol>
+
+<blockquote>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> const vm = this;
+ // console.log(`ttt, ${this.$http.get('/api/info')}`);
+ this.$http.get('/api/info')
+ .then((res) =&gt; { vm.axios = res; })
+ .catch(err =&gt; console.log(err));
+</code></pre></div>  </div>
+
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#修改config/index.js
+proxyTable: {
+  '/api': {
+    target: 'http://192.168.10.10/',
+    changeOrigin: true
+  }
+}
+</code></pre></div></div>
+
+<p>​</p>
+
+<ol>
+  <li>We can use <code class="language-plaintext highlighter-rouge">style scoped</code> to restrict the css to just set for the current component.</li>
+</ol>
+
+  </section>
+<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E8%AE%BE%E8%AE%A1/" data-toggle="tooltip" data-placement="top" title="从零开始学设计[日]北村崇">Last Blog：  <span>从零开始学设计[日]北村崇</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/06/iMovie%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" data-toggle="tooltip" data-placement="top" title="iMoive自学">Next Blog：  <span>iMoive自学</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      // Here is an example,
+      this.page.url = "https://c0ldstudy.github.io/2017/06/Vue_Framework/";
+      this.page.identifier = "/2017/06/Vue_Framework/";
+    };
+
+    // You should be able to get the following lines of code from your Disqus admin.
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//c0ldstudy-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">
+          <div clas="recordings" style="display:flex;justify-content:space-around;">
+          <div class="twitter_display">
+            <div class='jekyll-twitter-plugin'><a class="twitter-timeline" data-width="300" data-tweet-limit="1" href="https://twitter.com/JiacenXu?ref_src=twsrc%5Etfw">Tweets by JiacenXu</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+          </div>
+          <div class="github_chart">
+            <img src="http://ghchart.rshah.org/409ba5/C0ldstudy" alt="C0ldstudy's Blue Github chart"/>
+            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=PWaejm3rz2TG6HOtwcekX2kM9kPWz2aP6GYhuOVoNpA&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+          </div>
+        </div>
+            <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/c0ldstudy" title="@c0ldstudy 的 Github" target="_blank">
+              <i class='fab fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          <!-- Twitter -->
+          <li class="navigation__item_social">
+            <a href="https://twitter.com/JiacenXu" title="@JiacenXu" target="_blank">
+              <i class='fab fa-twitter fa-2x'></i>
+              <span class="label">Twitter</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- LinkedIn -->
+          <li class="navigation__item_social">
+            <a href="https://www.linkedin.com/in/jiacen-xu-021536105/" title="@jiacen-xu-021536105" target="_blank">
+              <i class='fab fa-linkedin fa-2x'></i>
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:coldstudyxu@gmail.com" title="Contact me">
+              <i class='fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+          </ul>
+        </nav>
+        </div>
+
+        <div class = "footer_div_counter">
+           <p class="copyright text-muted">
+            Copyright &copy; Jason Xu 2022 Theme by <a href="http://c0ldstudy.github.io/">C0ldstudy</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=c0ldstudy&repo=c0ldstudy.github.io&type=star&count=true" >
+            </iframe>
+            </p>
+        	<div align="right">
+    			<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_uv" style='display:none'>
+          <span id="busuanzi_value_site_uv"></span> People Visited!
+          </span>
+        </div>
+        </div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>
