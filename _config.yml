@@ -1,10 +1,10 @@
-title: Jessie'Log
-name: "Jessie's Blog"
-author: Zeqiong Wu
-#twitter_username: lilianweng
-baseurl: "/jessie-log"
+title: Lil'Log
+name: "Lilian's Tech Blog"
+author: Lilian Weng
+twitter_username: lilianweng
+baseurl: "/lil-log"
 description: Document my learning notes.
-profile_url: "http://zeqiong-06.github.io"
+profile_url: "http://lilianweng.github.io"
 
 # Build settings
 markdown: kramdown
