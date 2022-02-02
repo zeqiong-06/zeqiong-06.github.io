@@ -4,7 +4,7 @@ author: Zeqiong Wu
 twitter_username: lilianweng
 baseurl: "/jessie-log"
 description: Document my learning notes.
-profile_url: "http://zeqiong-06.github.io"
+profile_url: "http://zeqiong.github.io"
 
 # Build settings
 markdown: kramdown
